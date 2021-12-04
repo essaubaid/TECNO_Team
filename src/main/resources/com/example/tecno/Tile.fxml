@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="190.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tecno.TilesController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="190.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="image" fitHeight="109.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../img/google_pixel_2_XL.jpg" />
+               </image>
+            </ImageView>
+            <HBox prefHeight="62.0" prefWidth="250.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="productName" prefHeight="33.0" prefWidth="107.0" text="Google Pixel 2 XL">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="selllerName" alignment="TOP_LEFT" prefHeight="26.0" prefWidth="74.0" text="By Pawan Kumar">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <Label fx:id="productPrice" alignment="CENTER_RIGHT" prefHeight="37.0" prefWidth="138.0" text="Rs 90,000">
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
