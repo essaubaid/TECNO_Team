@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane prefHeight="650.0" prefWidth="1150.0" stylesheets="@../../../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tecno.HomePageController">
    <children>
       <BorderPane layoutY="-7.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-7.0">
@@ -61,7 +62,7 @@
                               <Insets />
                            </HBox.margin>
                            <content>
-                              <GridPane fx:id="grid"  prefHeight="0.0" prefWidth="1.0" stylesheets="@../../../Style/styles.css">
+                              <GridPane fx:id="grid" prefHeight="0.0" prefWidth="1.0" stylesheets="@../../../Style/styles.css">
                                 <rowConstraints>
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
