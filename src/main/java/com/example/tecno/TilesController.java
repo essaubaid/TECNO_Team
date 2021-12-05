@@ -19,7 +19,7 @@ public class TilesController {
     private Label productPrice;
 
     @FXML
-    private Label selllerName;
+    private Label sellerName;
 
     private ProductTileView tile;
 
@@ -27,7 +27,17 @@ public class TilesController {
         this.tile = tile;
 
         productName.setText(tile.getProductName());
-        selllerName.setText(tile.getSellerName());
+        sellerName.setText(tile.getSellerName());
+        productPrice.setText("Rs "+tile.getPrice());
+        Image image = new Image(getClass().getResourceAsStream(tile.getImgURL()));
+        this.image.setImage(image);
+    }
+
+    public void setMenuData(ProductTileView tile) {
+        this.tile = tile;
+
+        productName.setText(tile.getProductName());
+        sellerName.setText(tile.getSellerName());
         productPrice.setText("Rs "+tile.getPrice());
         Image image = new Image(getClass().getResourceAsStream(tile.getImgURL()));
         this.image.setImage(image);
