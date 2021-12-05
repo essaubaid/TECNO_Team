@@ -72,5 +72,15 @@
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
+      <TextField layoutX="466.0" layoutY="113.0" promptText="type your shop number">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </TextField>
+      <Label layoutX="466.0" layoutY="90.0" text="Shop Number">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
