@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="676.0" styleClass="white_page" stylesheets="@../../../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="676.0" styleClass="white_page" stylesheets="@../../../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tecno.signUpController">
    <children>
       <Label layoutX="452.0" layoutY="73.0" text="SIGNUP">
          <font>
@@ -34,7 +34,7 @@
          </font>
       </TextField>
       <Line endX="78.0" layoutX="502.0" layoutY="195.0" startX="-98.0" stroke="#dfdfdf" strokeWidth="1.25" />
-      <Button layoutX="401.0" layoutY="346.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="SIGNUP" textFill="WHITE">
+      <Button fx:id="SignUpButton" layoutX="401.0" layoutY="346.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="SIGNUP" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font></Button>
@@ -92,7 +92,7 @@
             <Font name="Microsoft JhengHei Bold" size="12.0" />
          </font>
       </Label>
-      <Button layoutX="401.0" layoutY="399.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../Style/styles.css" text="SIGNIN">
+      <Button fx:id="SignInButton" layoutX="401.0" layoutY="399.0" mnemonicParsing="false" onAction="#switchToSignIN" prefHeight="26.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../Style/styles.css" text="SIGNIN">
          <font>
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font>

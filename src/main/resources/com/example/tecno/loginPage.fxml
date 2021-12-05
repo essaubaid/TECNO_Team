@@ -9,25 +9,25 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="676.0" styleClass="white_page" stylesheets="@../../../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="676.0" styleClass="white_page" stylesheets="@../../../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tecno.loginPageController">
    <children>
       <Label layoutX="399.0" layoutY="146.0" text="Username ">
          <font>
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="392.0" layoutY="159.0" promptText="type your username" styleClass="transparent" stylesheets="@../../../Style/styles.css" />
+      <TextField fx:id="usernameTextBox" layoutX="392.0" layoutY="159.0" promptText="type your username" styleClass="transparent" stylesheets="@../../../Style/styles.css" />
       <Label layoutX="400.0" layoutY="212.0" text="Password">
          <font>
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="392.0" layoutY="225.0" promptText="type your password" styleClass="transparent" stylesheets="@../../../Style/styles.css">
+      <TextField fx:id="passwordTextBox" layoutX="392.0" layoutY="225.0" promptText="type your password" styleClass="transparent" stylesheets="@../../../Style/styles.css">
          <font>
             <Font name="Microsoft Sans Serif" size="12.0" />
          </font>
       </TextField>
-      <Button layoutX="398.0" layoutY="265.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="LOGIN" textFill="WHITE">
+      <Button fx:id="loginButton" layoutX="398.0" layoutY="265.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="26.0" prefWidth="150.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="LOGIN" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font></Button>
@@ -53,17 +53,17 @@
             <Font name="Microsoft JhengHei Bold" size="12.0" />
          </font>
       </Label>
-      <Button layoutX="394.0" layoutY="336.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="155.0" styleClass="transparent" stylesheets="@../../../Style/styles.css" text="SIGNUP">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="12.0" />
-         </font>
-      </Button>
       <Label alignment="CENTER" layoutX="394.0" layoutY="360.0" prefHeight="18.0" prefWidth="155.0" text="Want to set up a shop" textFill="#8c8888">
          <font>
             <Font name="Microsoft JhengHei Bold" size="12.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" layoutX="394.0" layoutY="375.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="155.0" styleClass="transparent" stylesheets="@../../../Style/styles.css" text="SET UP SHOP">
+      <Button fx:id="setShopButton" alignment="CENTER" layoutX="394.0" layoutY="375.0" mnemonicParsing="false" onAction="#switchToSetShop" prefHeight="26.0" prefWidth="155.0" styleClass="transparent" stylesheets="@../../../Style/styles.css" text="SET UP SHOP">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="SignupButton" alignment="CENTER" layoutX="394.0" layoutY="336.0" mnemonicParsing="false" onAction="#switchToSignUP" prefHeight="26.0" prefWidth="155.0" styleClass="transparent" stylesheets="@../../../Style/styles.css" text="SIGNUP">
          <font>
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font>
