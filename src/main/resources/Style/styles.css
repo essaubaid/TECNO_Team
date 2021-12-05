@@ -1,0 +1,41 @@
+.white_page{
+-fx-background-color: #ffffff;
+}
+
+.transparent{
+-fx-background-color: rgba(0,0,0,0);
+}
+
+.input_field{
+-fx-background-color: #ffffff;
+}
+
+.blue_button{
+-fx-background-color: #0085EB;
+-fx-background-radius: 10;
+}
+
+.shadow{
+-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10,0,0,10);
+}
+
+.tile{
+-fx-background-color: #ffffff;
+-fx-background-radius: 15;
+-fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10,0,0,10);
+
+}
+
+.rightBar{
+-fx-background-color: #0085EB;
+-fx-background-radius:0 15 15 0;
+}
+
+.searchField{
+-fx-background-color: #ffffff;
+-fx-background-radius: 15;
+}
+
+.input_field_label{
+-fx-text-fill: #929293;
+}

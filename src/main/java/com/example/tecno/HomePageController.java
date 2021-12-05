@@ -31,7 +31,7 @@ public class HomePageController implements Initializable {
         List<ProductTileView> tiles = new ArrayList<>();
         ProductTileView tile = new ProductTileView();
 
-        for(int a = 0; a < 6; a++){
+        for(int a = 0; a < 12; a++){
             tile.setProductName("Google Pixel 2 XL");
             tile.setSellerName("by Pawan Kumar");
             tile.setPrice(90000);
@@ -48,7 +48,7 @@ public class HomePageController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tiles.addAll(getData());
         int column = 0;
-        int row = 0;
+        int row = 1;
 
         for(int i = 0; i < tiles.size(); i++){
             try {
@@ -65,16 +65,18 @@ public class HomePageController implements Initializable {
             }
 
 
-            grid.add(anchorPane,column++,row);
+            grid.add(anchorPane, column++, row); //(child,column,row)
+            //set grid width
             grid.setMinWidth(Region.USE_COMPUTED_SIZE);
             grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
             grid.setMaxWidth(Region.USE_PREF_SIZE);
 
+            //set grid height
             grid.setMinHeight(Region.USE_COMPUTED_SIZE);
             grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
             grid.setMaxHeight(Region.USE_PREF_SIZE);
 
-            GridPane.setMargin(anchorPane,new Insets(10));
+            GridPane.setMargin(anchorPane, new Insets(10, 5, 10,5));
 
             }
              catch (IOException e) {
