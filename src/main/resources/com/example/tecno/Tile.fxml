@@ -9,15 +9,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="190.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tecno.TilesController">
+<AnchorPane prefHeight="190.0" prefWidth="250.0" styleClass="tile" stylesheets="@../../../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tecno.TilesController">
    <children>
-      <VBox alignment="TOP_CENTER" prefHeight="190.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="image" fitHeight="109.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../img/google_pixel_2_XL.jpg" />
-               </image>
-            </ImageView>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="image" fitHeight="109.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../img/google_pixel_2_XL.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
             <HBox prefHeight="62.0" prefWidth="250.0">
                <children>
                   <VBox prefHeight="200.0" prefWidth="100.0">

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="676.0" styleClass="white_page" stylesheets="@../../../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tecno.setUpShopController">
+   <children>
+      <Label layoutX="452.0" layoutY="55.0" text="Set Up Shop">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="402.0" layoutY="87.0" text="Username ">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="395.0" layoutY="100.0" prefHeight="26.0" prefWidth="186.0" promptText="enter a username" styleClass="transparent" stylesheets="@../../../Style/styles.css" />
+      <Line endX="78.0" layoutX="502.0" layoutY="123.0" startX="-98.0" stroke="#dfdfdf" strokeWidth="1.25" />
+      <Label layoutX="403.0" layoutY="128.0" text="Password">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="395.0" layoutY="141.0" prefHeight="23.0" prefWidth="186.0" promptText="enter a password" styleClass="transparent" stylesheets="@../../../Style/styles.css">
+         <font>
+            <Font name="Microsoft Sans Serif" size="12.0" />
+         </font>
+      </TextField>
+      <Line endX="78.0" layoutX="502.0" layoutY="162.0" startX="-98.0" stroke="#dfdfdf" strokeWidth="1.25" />
+      <Button fx:id="setUpButton" layoutX="413.0" layoutY="331.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="SET UP" textFill="WHITE">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="12.0" />
+         </font></Button>
+      <Label layoutX="403.0" layoutY="244.0" text="E-mail">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="395.0" layoutY="257.0" prefHeight="23.0" prefWidth="186.0" promptText="type your email" styleClass="transparent" stylesheets="@../../../Style/styles.css">
+         <font>
+            <Font name="Microsoft Sans Serif" size="12.0" />
+         </font>
+      </TextField>
+      <Line endX="78.0" layoutX="502.0" layoutY="278.0" startX="-98.0" stroke="#dfdfdf" strokeWidth="1.25" />
+      <Label layoutX="403.0" layoutY="282.0" text="Phone number">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="395.0" layoutY="295.0" prefHeight="23.0" prefWidth="186.0" promptText="type your phone number" styleClass="transparent" stylesheets="@../../../Style/styles.css">
+         <font>
+            <Font name="Microsoft Sans Serif" size="12.0" />
+         </font>
+      </TextField>
+      <Line endX="78.0" layoutX="502.0" layoutY="316.0" startX="-98.0" stroke="#dfdfdf" strokeWidth="1.25" />
+      <Label layoutX="435.0" layoutY="368.0" text="Not a shop owner" textFill="#8c8888">
+         <font>
+            <Font name="Microsoft JhengHei Bold" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="signInButton" layoutX="413.0" layoutY="384.0" mnemonicParsing="false" onAction="#switchToSignIN" prefHeight="26.0" prefWidth="150.0" styleClass="transparent" stylesheets="@../../../Style/styles.css" text="SIGNIN">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="250.0" fitWidth="354.0" layoutX="30.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/set_UP_SHOP.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="403.0" layoutY="166.0" text="Shop Name">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="395.0" layoutY="179.0" prefHeight="23.0" prefWidth="186.0" promptText="enter you shop name" styleClass="transparent" stylesheets="@../../../Style/styles.css">
+         <font>
+            <Font name="Microsoft Sans Serif" size="12.0" />
+         </font>
+      </TextField>
+      <Line endX="78.0" layoutX="502.0" layoutY="200.0" startX="-98.0" stroke="#dfdfdf" strokeWidth="1.25" />
+      <Label layoutX="403.0" layoutY="205.0" text="Your Name">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField layoutX="395.0" layoutY="218.0" prefHeight="23.0" prefWidth="186.0" promptText="enter you name" styleClass="transparent" stylesheets="@../../../Style/styles.css">
+         <font>
+            <Font name="Microsoft Sans Serif" size="12.0" />
+         </font>
+      </TextField>
+      <Line endX="78.0" layoutX="502.0" layoutY="239.0" startX="-98.0" stroke="#dfdfdf" strokeWidth="1.25" />
+   </children>
+</AnchorPane>
