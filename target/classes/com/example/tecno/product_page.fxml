@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tecno.HomePageController">
+   <children>
+      <BorderPane prefHeight="600.0" prefWidth="1058.0">
+         <top>
+            <AnchorPane prefHeight="75.0" prefWidth="1058.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
+               <children>
+                  <MenuButton cache="true" layoutX="930.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                     <opaqueInsets>
+                        <Insets bottom="1000000.0" left="1000000.0" right="1000000.0" top="1000000.0" />
+                     </opaqueInsets>
+                     <graphic>
+                        <Avatar accessibleRole="MENU_BUTTON">
+                           <image>
+                              <Image url="@../../../../../../../../Downloads/TECNO_Team-master/TECNO_Team-master/src/main/resources/img/Annotation%202021-12-05%20040137.png" />
+                           </image>
+                        </Avatar>
+                     </graphic>
+                  </MenuButton>
+                  <Button layoutX="677.0" layoutY="25.0" mnemonicParsing="false" text="Search" />
+                  <TextField alignment="BOTTOM_LEFT" layoutX="466.0" layoutY="25.0" prefHeight="31.0" prefWidth="211.0" promptText="Type here to Search" />
+                  <ImageView fitHeight="59.0" fitWidth="227.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../../Downloads/TECNO_Team-master/TECNO_Team-master/src/main/resources/img/Creda%20Logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="120.0" layoutY="37.0" prefHeight="216.0" prefWidth="572.0" style="-fx-border-radius: 20; -fx-border-color: lightgrey;">
+                     <children>
+                        <ImageView fitHeight="216.0" fitWidth="250.0" layoutX="178.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../../Downloads/TECNO_Team-master/TECNO_Team-master/src/main/resources/img/google_pixel_2_XL.jpg" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="120.0" layoutY="274.0" prefHeight="230.0" prefWidth="572.0" style="-fx-border-radius: 20; -fx-border-color: lightgrey;">
+                     <children>
+                        <Text layoutX="22.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Details" textAlignment="CENTER" wrappingWidth="76.3515625">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="33.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Best Price">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="36.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warranty">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="336.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Storage">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="344.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RAM">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Text>
+                        <Line endX="232.0" layoutX="270.0" layoutY="122.0" startX="-200.0" />
+                        <TextField editable="false" layoutX="136.0" layoutY="47.0" prefHeight="26.0" prefWidth="115.0" />
+                        <TextField editable="false" layoutX="136.0" layoutY="75.0" prefHeight="26.0" prefWidth="115.0" />
+                        <TextField editable="false" layoutX="400.0" layoutY="46.0" prefHeight="26.0" prefWidth="115.0" />
+                        <TextField editable="false" layoutX="400.0" layoutY="74.0" prefHeight="26.0" prefWidth="115.0" />
+                        <TextArea editable="false" layoutX="19.0" layoutY="150.0" prefHeight="69.0" prefWidth="533.0" promptText="Descriptions" />
+                        <Text layoutX="22.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" textAlignment="CENTER" wrappingWidth="101.3515625">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </left>
+         <right>
+            <AnchorPane prefHeight="535.0" prefWidth="386.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="525.0" prefWidth="334.0">
+                     <children>
+                        <AnchorPane layoutX="4.0" layoutY="99.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="155.0" prefWidth="302.0" style="-fx-border-radius: 20; -fx-border-color: lightgrey;">
+                           <children>
+                              <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seller Details" wrappingWidth="252.171875">
+                                 <font>
+                                    <Font name="Arial" size="20.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="14.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="2.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone No.">
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="179.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shop Name">
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="185.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shop No.">
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </Text>
+                              <TextField editable="false" layoutX="66.0" layoutY="57.0" prefHeight="26.0" prefWidth="102.0" />
+                              <TextField editable="false" layoutX="65.0" layoutY="85.0" prefHeight="26.0" prefWidth="104.0" />
+                              <TextField editable="false" layoutX="253.0" layoutY="57.0" prefHeight="26.0" prefWidth="102.0" />
+                              <TextField editable="false" layoutX="252.0" layoutY="83.0" prefHeight="26.0" prefWidth="104.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="4.0" layoutY="41.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="47.0" prefWidth="355.0" style="-fx-border-radius: 20; -fx-border-color: lightgrey;">
+                           <children>
+                              <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Google Pixel 5G" wrappingWidth="252.171875">
+                                 <font>
+                                    <Font name="Arial" size="20.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="7.0" layoutY="263.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="234.0" prefWidth="355.0" style="-fx-border-radius: 20; -fx-border-color: lightgrey;">
+                           <children>
+                              <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other Shop Prices" wrappingWidth="252.171875">
+                                 <font>
+                                    <Font name="Arial" size="20.0" />
+                                 </font>
+                              </Text>
+                              <ListView blendMode="DARKEN" fixedCellSize="2.0" layoutX="17.0" layoutY="46.0" prefHeight="171.0" prefWidth="322.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </right>
+         <bottom>
+            <AnchorPane prefHeight="24.0" prefWidth="1078.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
+               <children>
+                  <Text blendMode="DARKEN" fill="#01018d" layoutX="870.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="COPYRIGHT 2021 CREDA" wrappingWidth="197.10023498535156">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>
