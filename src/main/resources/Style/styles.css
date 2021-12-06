@@ -13,6 +13,9 @@
 .blue_button{
 -fx-background-color: #0085EB;
 -fx-background-radius: 10;
+-fx-text-fill: white;
+-fx-font-family: "Microsoft YaHei";
+-fx-font-weight: bold;
 }
 
 .shadow{
@@ -38,4 +41,10 @@
 
 .input_field_label{
 -fx-text-fill: #929293;
+}
+
+.input_field_textbox{
+-fx-background-color: transparent;
+-fx-border-color: #dfdfdf;
+-fx-border-width: 0 0 1.4 0;
 }
