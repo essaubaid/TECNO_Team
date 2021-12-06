@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -24,6 +25,9 @@ public class HomePageController implements Initializable {
 
     @FXML
     private ScrollPane scroll;
+
+    @FXML
+    private MenuButton dropDown;
 
     private List<ProductTileView> tiles = new ArrayList<>();
 
