@@ -48,3 +48,9 @@
 -fx-border-color: #dfdfdf;
 -fx-border-width: 0 0 1.4 0;
 }
+
+.input_field_textbox{
+-fx-background-color: transparent;
+-fx-border-color: #dfdfdf;
+-fx-border-width: 0 0 1.4 0;
+}
