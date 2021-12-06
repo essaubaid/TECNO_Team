@@ -50,7 +50,7 @@
             <left>
                 <AnchorPane BorderPane.alignment="CENTER">
                     <children>
-                        <AnchorPane layoutX="70.0" layoutY="48.0" prefHeight="216.0" prefWidth="572.0" style="-fx-border-radius: 20; -fx-border-color: lightgrey;">
+                        <AnchorPane layoutX="70.0" layoutY="48.0" prefHeight="216.0" prefWidth="572.0" styleClass="tile" stylesheets="@../../../Style/styles.css">
                             <children>
                                 <ImageView fitHeight="216.0" fitWidth="250.0" layoutX="178.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
@@ -59,7 +59,7 @@
                                 </ImageView>
                             </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="70.0" layoutY="276.0" prefHeight="230.0" prefWidth="572.0" style="-fx-border-radius: 20; -fx-border-color: lightgrey;">
+                        <AnchorPane layoutX="70.0" layoutY="276.0" prefHeight="230.0" prefWidth="572.0" styleClass="tile" stylesheets="@../../../Style/styles.css">
                             <children>
                                 <Text layoutX="22.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Details" textAlignment="CENTER" wrappingWidth="76.3515625">
                                     <font>
@@ -107,7 +107,7 @@
                     <children>
                         <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="525.0" prefWidth="334.0">
                             <children>
-                                <AnchorPane layoutX="4.0" layoutY="99.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="155.0" prefWidth="362.0" style="-fx-border-radius: 20; -fx-border-color: lightgrey;">
+                                <AnchorPane layoutX="4.0" layoutY="99.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="155.0" prefWidth="362.0" styleClass="tile">
                                     <children>
                                         <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seller Details" wrappingWidth="252.171875">
                                             <font>
@@ -140,7 +140,7 @@
                               <Label fx:id="shopNoLabel" layoutX="249.0" layoutY="93.0" prefHeight="18.0" prefWidth="102.0" text="Label" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane layoutX="4.0" layoutY="41.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="47.0" prefWidth="362.0" style="-fx-border-radius: 20; -fx-border-color: lightgrey;">
+                                <AnchorPane layoutX="4.0" layoutY="41.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="47.0" prefWidth="362.0" styleClass="tile" stylesheets="@../../../Style/styles.css">
                                     <children>
                                         <Text fx:id="productNameLabel" layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Google Pixel 5G" wrappingWidth="252.171875">
                                             <font>
@@ -149,7 +149,7 @@
                                         </Text>
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane layoutX="7.0" layoutY="263.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="234.0" prefWidth="358.0" style="-fx-border-radius: 20; -fx-border-color: lightgrey;">
+                                <AnchorPane layoutX="7.0" layoutY="263.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="234.0" prefWidth="358.0" styleClass="tile">
                                     <children>
                                         <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Other Shop Prices" wrappingWidth="252.171875">
                                             <font>
