@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="676.0" styleClass="white_page" stylesheets="@../../../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tecno.signUpController">
+   <children>
+      <ImageView fitHeight="324.0" fitWidth="327.0" layoutX="20.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/online-registration-sign-up-concept-with-man-character_268404-98.jpg" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="378.0" layoutY="78.0" prefHeight="293.0" prefWidth="208.0" style="-fx-background-color: WHITE;" styleClass="shadow" stylesheets="@../../../Style/styles.css">
+         <children>
+            <AnchorPane prefHeight="150.0" prefWidth="221.0" style="-fx-background-color: #0085EB;">
+               <children>
+                  <Label layoutX="74.0" layoutY="87.0" text="SUCCESS" textFill="#f8f7f7">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="95.0" layoutY="40.0" text="✔" textFill="#fcfcfc">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Text layoutX="30.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Congratulations, your account" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="30.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="has been successfully created" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Text>
+            <Button fx:id="SignInButton" layoutX="38.0" layoutY="226.0" mnemonicParsing="false" onAction="#switchToSignIN" prefHeight="26.0" prefWidth="150.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="SIGNIN" textFill="#f5f5f5">
+               <font>
+                  <Font name="Microsoft YaHei Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
