@@ -33,7 +33,7 @@
                             <graphic>
                                 <Avatar accessibleRole="MENU_BUTTON">
                                     <image>
-                                        <Image url="@../../../../../../../../Downloads/TECNO_Team-master/TECNO_Team-master/src/main/resources/img/Annotation%202021-12-05%20040137.png" />
+                                        <Image url="@../../../img/Creda%20Logo.png" />
                                     </image>
                                 </Avatar>
                             </graphic>
@@ -42,7 +42,7 @@
                         <TextField alignment="BOTTOM_LEFT" layoutX="466.0" layoutY="25.0" prefHeight="31.0" prefWidth="211.0" promptText="Type here to Search" />
                         <ImageView fitHeight="59.0" fitWidth="227.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../../../../../../../Downloads/TECNO_Team-master/TECNO_Team-master/src/main/resources/img/Creda%20Logo.png" />
+                                <Image url="@../../../img/Creda%20Logo.png" />
                             </image>
                         </ImageView>
                     </children>
@@ -55,7 +55,7 @@
                             <children>
                                 <ImageView fitHeight="216.0" fitWidth="250.0" layoutX="178.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../../../../../../../../Downloads/TECNO_Team-master/TECNO_Team-master/src/main/resources/img/google_pixel_2_XL.jpg" />
+                                        <Image url="@../../../img/google_pixel_2_XL.jpg" />
                                     </image>
                                 </ImageView>
                             </children>

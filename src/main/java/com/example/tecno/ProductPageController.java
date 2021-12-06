@@ -6,7 +6,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
@@ -25,7 +24,7 @@ public class ProductPageController {
 
     }
 
-    public void switchToHomePage(@NotNull ActionEvent event) throws IOException {
+    public void switchToHomePage(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -34,7 +33,7 @@ public class ProductPageController {
 
     }
 
-    public void switchToViewProfile(@NotNull ActionEvent event) throws IOException {
+    public void switchToViewProfile(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -43,7 +42,7 @@ public class ProductPageController {
 
     }
 
-    public void switchToViewFavorites(@NotNull ActionEvent event) throws IOException {
+    public void switchToViewFavorites(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -55,7 +54,7 @@ public class ProductPageController {
     public void getData(){
 
     }
-    public void SearchEngine(@NotNull ActionEvent event) throws IOException {
+    public void SearchEngine(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
