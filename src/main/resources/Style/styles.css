@@ -48,3 +48,19 @@
 -fx-border-color: #dfdfdf;
 -fx-border-width: 0 0 1.4 0;
 }
+
+}
+
+.searchBar{
+-fx-background-color: transparent;
+-fx-text-fill: #FFFFFF;
+-fx-text-font: arial;
+-fx-prompt-text-fill: #FFFFFF;
+-fx-border-style: hidden hidden solid hidden;
+-fx-border-width: 1.75;
+-fx-border-color: white;
+-fx-background-image:url('@../../../img/searchIcon.png');
+-fx-background-repeat: no-repeat;
+-fx-background-position:right center;
+-fx-padding:0;
+}
