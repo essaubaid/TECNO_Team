@@ -1,0 +1,97 @@
+CREATE TABLE `administrator` (
+  `admin_ID` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(30) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `phone_no` decimal(10,0) DEFAULT NULL,
+  `image_directory` linestring DEFAULT NULL,
+  PRIMARY KEY (`admin_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `catogary` (
+  `cat_ID` int NOT NULL AUTO_INCREMENT,
+  `cat_name` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`cat_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `company` (
+  `comp_ID` int NOT NULL AUTO_INCREMENT,
+  `comp_name` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`comp_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `customer` (
+  `cust_ID` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(30) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `phone_no` decimal(10,0) DEFAULT NULL,
+  `image_directory` linestring DEFAULT NULL,
+  PRIMARY KEY (`cust_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `favorites` (
+  `prod_ID` int NOT NULL,
+  `cust_ID` int NOT NULL,
+  `date_of_saved` datetime NOT NULL,
+  PRIMARY KEY (`prod_ID`,`cust_ID`),
+  KEY `cust_ID_idx` (`cust_ID`),
+  CONSTRAINT `cust_ID` FOREIGN KEY (`cust_ID`) REFERENCES `customer` (`cust_ID`),
+  CONSTRAINT `prod_ID` FOREIGN KEY (`prod_ID`) REFERENCES `product` (`prod_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `product` (
+  `prod_ID` int NOT NULL AUTO_INCREMENT,
+  `cat_ID` int NOT NULL,
+  `comp_ID` int NOT NULL,
+  `prod_name` varchar(50) NOT NULL,
+  `prod_description` text,
+  `Ram` varchar(10) DEFAULT NULL,
+  `Storage` varchar(10) DEFAULT NULL,
+  `image_directory` linestring DEFAULT NULL,
+  PRIMARY KEY (`prod_ID`),
+  KEY `cat_ID_idx` (`cat_ID`),
+  KEY `comp_ID_idx` (`comp_ID`),
+  CONSTRAINT `cat_ID` FOREIGN KEY (`cat_ID`) REFERENCES `catogary` (`cat_ID`),
+  CONSTRAINT `comp_ID` FOREIGN KEY (`comp_ID`) REFERENCES `company` (`comp_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `review` (
+  `review_ID` int NOT NULL AUTO_INCREMENT,
+  `prod_ID` int NOT NULL,
+  `shopkeeper_ID` int NOT NULL,
+  `cust_ID` int NOT NULL,
+  `rating` int NOT NULL,
+  PRIMARY KEY (`review_ID`),
+  KEY `review_prod_idx` (`prod_ID`),
+  KEY `review_cust_idx` (`cust_ID`),
+  KEY `review_shopkeeper_idx` (`shopkeeper_ID`),
+  CONSTRAINT `review_cust` FOREIGN KEY (`cust_ID`) REFERENCES `customer` (`cust_ID`),
+  CONSTRAINT `review_prod` FOREIGN KEY (`prod_ID`) REFERENCES `product` (`prod_ID`),
+  CONSTRAINT `review_shopkeeper` FOREIGN KEY (`shopkeeper_ID`) REFERENCES `shopkeeper` (`shopkeeper_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `shopkeeper` (
+  `shopkeeper_ID` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `shopkeeper_name` varchar(50) DEFAULT NULL,
+  `shop_name` varchar(30) NOT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `phone_no` decimal(10,0) DEFAULT NULL,
+  `image_directory` linestring DEFAULT NULL,
+  PRIMARY KEY (`shopkeeper_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `stock` (
+  `prod_ID` int NOT NULL,
+  `shopkeeper_ID` int NOT NULL,
+  `in_stock` tinyint DEFAULT NULL,
+  `price` int DEFAULT NULL,
+  `warranty` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`shopkeeper_ID`,`prod_ID`),
+  KEY `shopkeeper_ID_idx` (`shopkeeper_ID`),
+  KEY `Stock_prod_ID` (`prod_ID`),
+  CONSTRAINT `Stock_prod_ID` FOREIGN KEY (`prod_ID`) REFERENCES `product` (`prod_ID`),
+  CONSTRAINT `stock_shopkeeper_ID` FOREIGN KEY (`shopkeeper_ID`) REFERENCES `shopkeeper` (`shopkeeper_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

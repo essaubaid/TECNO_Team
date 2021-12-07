@@ -1,0 +1,105 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` FUNCTION `GetfavoriteListing`(
+custNo int
+) RETURNS int
+    DETERMINISTIC
+BEGIN
+    DECLARE compname linestring;
+	DECLARE prodname linestring;
+    DECLARE imageURL linestring;
+    SELECT 
+		comp_name,prod_name,image_directory
+	INTO compname, prodname, imageURL
+    FROM favorite join product
+    WHERE 
+		cust_ID =custNo;
+	return imageURL || ' ' || compname || ' ' || prodname;
+
+END$$
+DELIMITER ;
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` FUNCTION `getImage`(ProductName int) RETURNS linestring
+    DETERMINISTIC
+BEGIN
+declare imageReference linestring;
+   select image_directory into imageReference
+   from product 
+   where prod_ID=ProductName;
+   return imageReference;
+END$$
+DELIMITER ;
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` FUNCTION `GetProductListing`() RETURNS varchar(20) CHARSET utf8mb4
+    DETERMINISTIC
+BEGIN
+    DECLARE compname linestring;
+	DECLARE prodname linestring;
+    DECLARE imageURL linestring;
+    SELECT 
+		comp_name,prod_name,image_directory
+	INTO compname, prodname, imageURL
+    FROM product
+    WHERE 
+		prod_ID like (select prod_ID from stock);
+	return imageURL || ' ' || compname || ' ' || prodname;
+    
+END$$
+DELIMITER ;
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` FUNCTION `GetSearchProductName`(
+Search_word varchar(20)
+) RETURNS int
+    DETERMINISTIC
+BEGIN
+	DECLARE compname linestring;
+	DECLARE prodname linestring;
+    DECLARE imageURL linestring;
+    SELECT 
+		comp_name,prod_name,image_directory
+	INTO compname, prodname, imageURL
+    FROM product
+    WHERE 
+		prod_name = Search_word;
+	return imageURL || ' ' || compname || ' ' || prodname;
+END$$
+DELIMITER ;
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` FUNCTION `verifyLogin`(
+user varchar(50),
+pass varchar(50)
+) RETURNS varchar(5) CHARSET utf8mb4
+    DETERMINISTIC
+Begin
+
+declare chk_username varchar(50);
+declare chk_password varchar(50);
+		select username, password into chk_username,chk_password from customer 
+        where username=user; 
+    if chk_username=user & pass=chk_password THEN 
+		return 'user';
+    ELSEif chk_username=user & pass!=chk_password THEN 
+		return 'incorrect pass';
+    ELSE 
+		select username, password into chk_username,chk_password from administrator 
+        where username=user;
+    END IF;
+    
+    if cus_username=user & chk_password=pass THEN 
+		return 'admin';
+	ELSEif chk_username=user & pass!=chk_password THEN 
+		return 'incorrect pass';
+    ELSE 
+		select username, password into chk_username,chk_password from  shopkeeper
+        where username=user;
+    END IF;
+    
+     if cus_username=user & chk_password=pass THEN 
+		return 'shopkeeper';
+    ELSEif chk_username=user & pass!=chk_password THEN 
+		return 'incorrect pass';
+    ELSE 
+		return null;
+    END IF;
+    
+END$$
+DELIMITER ;
