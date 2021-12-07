@@ -9,41 +9,41 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="676.0" styleClass="shadow" stylesheets="@../../../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="300.0" layoutY="265.0" text="Username ">
+      <Label layoutX="300.0" layoutY="265.0" styleClass="input_field_label" text="Username ">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="299.0" layoutY="281.0" promptText="type your username" />
-      <Label layoutX="466.0" layoutY="265.0" text="Password">
+      <TextField layoutX="299.0" layoutY="281.0" promptText="type your username" styleClass="input_field_textbox" />
+      <Label layoutX="466.0" layoutY="265.0" styleClass="input_field_label" text="Password">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="466.0" layoutY="281.0" promptText="type your password" />
-      <Button layoutX="381.0" layoutY="376.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" stylesheets="@../../../../java/com/example/tecno/Application.css" text="Update">
+      <TextField layoutX="466.0" layoutY="281.0" promptText="type your password" styleClass="input_field_textbox" />
+      <Button layoutX="381.0" layoutY="376.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" styleClass="blue_button" stylesheets="@../../../../java/com/example/tecno/Application.css" text="Update">
          <font>
             <Font name="Arial" size="12.0" />
          </font></Button>
-      <Line endX="-100.0" endY="226.0" layoutX="388.0" layoutY="190.0" startX="-100.0" startY="-121.0" />
-      <Label layoutX="300.0" layoutY="152.0" text="First Name">
+      <Line endX="-100.0" endY="226.0" layoutX="388.0" layoutY="190.0" startX="-100.0" startY="-135.0" />
+      <Label layoutX="300.0" layoutY="152.0" styleClass="input_field_label" text="First Name">
          <font>
             <Font name="Arial" size="12.0" />
          </font></Label>
-      <Label layoutX="300.0" layoutY="210.0" text="Email">
+      <Label layoutX="300.0" layoutY="210.0" styleClass="input_field_label" text="Email">
          <font>
             <Font name="Arial" size="12.0" />
          </font></Label>
-      <Label layoutX="298.0" layoutY="316.0" text="Phone Number">
+      <Label layoutX="298.0" layoutY="316.0" styleClass="input_field_label" text="Phone Number">
          <font>
             <Font name="Arial" size="12.0" />
          </font></Label>
-      <TextField layoutX="299.0" layoutY="170.0" promptText="type your first name" />
-      <TextField layoutX="299.0" layoutY="227.0" promptText="type your email" />
-      <TextField layoutX="299.0" layoutY="331.0" promptText="type your phone number" />
-      <Label layoutX="299.0" layoutY="69.0" text="PROFILE">
+      <TextField layoutX="299.0" layoutY="170.0" promptText="type your first name" styleClass="input_field_textbox" />
+      <TextField layoutX="299.0" layoutY="227.0" promptText="type your email" styleClass="input_field_textbox" />
+      <TextField layoutX="299.0" layoutY="333.0" promptText="type your phone number" styleClass="input_field_textbox" />
+      <Label layoutX="299.0" layoutY="58.0" styleClass="tile_Title" stylesheets="@../../../Style/styles.css" text="PROFILE">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
@@ -53,31 +53,31 @@
             <Image url="@../../../../../../../../Downloads/Pawanpic.png" />
          </image>
       </ImageView>
-      <TextField layoutX="466.0" layoutY="170.0" promptText="type your last name" />
-      <Label layoutX="466.0" layoutY="152.0" text="Last Name">
+      <TextField layoutX="466.0" layoutY="170.0" promptText="type your last name" styleClass="input_field_textbox" />
+      <Label layoutX="466.0" layoutY="152.0" styleClass="input_field_label" text="Last Name">
          <font>
             <Font name="Arial" size="12.0" />
          </font></Label>
-      <Button layoutX="81.0" layoutY="293.0" mnemonicParsing="false" text="Update Image">
+      <Button layoutX="81.0" layoutY="293.0" mnemonicParsing="false" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="Update Image">
          <font>
             <Font name="Arial" size="12.0" />
          </font></Button>
-      <TextField layoutX="299.0" layoutY="114.0" promptText="type your shopname">
+      <TextField layoutX="299.0" layoutY="113.0" promptText="type your shopname" styleClass="input_field_textbox">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </TextField>
-      <Label layoutX="300.0" layoutY="91.0" text="Shop Name">
+      <Label layoutX="300.0" layoutY="91.0" styleClass="input_field_label" text="Shop Name">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="466.0" layoutY="113.0" promptText="type your shop number">
+      <TextField layoutX="466.0" layoutY="113.0" promptText="type your shop number" styleClass="input_field_textbox">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </TextField>
-      <Label layoutX="466.0" layoutY="90.0" text="Shop Number">
+      <Label layoutX="466.0" layoutY="90.0" styleClass="input_field_label" text="Shop Number">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
