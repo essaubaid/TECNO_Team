@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
@@ -9,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="677.0" styleClass="shadow" stylesheets="@../../../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="201.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="129.0" text="Update">
+      <Button layoutX="201.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="129.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="Update">
          <font>
             <Font name="Arial" size="12.0" />
          </font></Button>
@@ -27,28 +28,32 @@
             <TableColumn prefWidth="66.0" style="-fx-: f;" text="Warranty" />
         </columns>
       </TableView>
-      <Button layoutX="50.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="129.0" text="Add">
+      <Button layoutX="50.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="129.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="Add">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="353.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="129.0" text="Delete">
+      <Button layoutX="353.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="129.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="Delete">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="502.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="129.0" text="Back">
+      <Button layoutX="502.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="129.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="Back">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </Button>
-      <MenuButton layoutX="115.0" layoutY="67.0" mnemonicParsing="false" text="MenuButton">
+      <MenuButton layoutX="115.0" layoutY="67.0" mnemonicParsing="false" stylesheets="@../../../Style/styles.css" text="MenuButton" textFill="WHITE">
         <items>
           <MenuItem mnemonicParsing="false" text="Action 1" />
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
+         <styleClass>
+            <String fx:value="blue_button" />
+            <String fx:value="blue_button" />
+         </styleClass>
       </MenuButton>
-      <Text layoutX="50.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="List" wrappingWidth="41.712890625">
+      <Text layoutX="50.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="P" text="List" wrappingWidth="41.712890625">
          <font>
             <Font size="21.0" />
          </font>
