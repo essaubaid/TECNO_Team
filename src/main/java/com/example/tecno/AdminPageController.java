@@ -112,6 +112,50 @@ public class AdminPageController implements Initializable {
         GridPane.setMargin(anchorPane, new Insets(10, 5, 10, 70));
     }
 
+    public void switchToSetUpShop(ActionEvent event) throws IOException {
+        Title.setText("My Profile");
+        grid.getChildren().removeAll(grid.getChildren());
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("setUpShop.fxml"));
+        AnchorPane anchorPane = fxmlLoader.load();
+
+        grid.add(anchorPane, 1, 1); //(child,column,row)
+        //set grid width
+        grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+        grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+        //set grid height
+        grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+        grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+        grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+        GridPane.setMargin(anchorPane, new Insets(10, 5, 10, 70));
+    }
+
+    public void switchToReports(ActionEvent event) throws IOException {
+        Title.setText("Reports");
+        grid.getChildren().removeAll(grid.getChildren());
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("Reports.fxml"));
+        AnchorPane anchorPane = fxmlLoader.load();
+
+        grid.add(anchorPane, 1, 1); //(child,column,row)
+        //set grid width
+        grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+        grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+        grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+        //set grid height
+        grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+        grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+        grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+        GridPane.setMargin(anchorPane, new Insets(10, 5, 10, 70));
+    }
+
     public void switchToRecommendation(ActionEvent event) throws IOException {
         Title.setText("My Recommendation");
         grid.getChildren().removeAll(grid.getChildren());
