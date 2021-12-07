@@ -3,7 +3,7 @@
 }
 
 .transparent{
--fx-background-color: rgba(0,0,0,0);
+-fx-background-color: transparent;
 }
 
 .input_field{
@@ -45,6 +45,11 @@
 -fx-font-weight: bold;
 }
 
+.input_field_value{
+-fx-text-fill: #8C8C8C;
+-fx-font-family: "Microsoft YaHei";
+}
+
 .input_field_textbox{
 -fx-background-color: transparent;
 -fx-border-color: #dfdfdf;
@@ -52,7 +57,7 @@
 -fx-font-family: "Microsoft YaHei";
 }
 
-.profile_Title{
+.tile_Title{
 -fx-text-fill: #929293;
 -fx-font-family: "Microsoft YaHei";
 -fx-font-weight: bold;

@@ -90,6 +90,78 @@ public class HomePageController implements Initializable {
         GridPane.setMargin(anchorPane, new Insets(10, 5, 10, 70));
     }
 
+    public void switchToRecommendation(ActionEvent event) throws IOException {
+        Title.setText("My Recommendation");
+        grid.getChildren().removeAll(grid.getChildren());
+
+        int column = 0;
+        int row = 1;
+
+        for(int i = 0; i < tiles.size(); i++){
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("Tile.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+
+                TilesController tilesController = fxmlLoader.getController();
+                tilesController.setData(tiles.get(i));
+
+                if(column==3){
+                    column=0;
+                    row++;
+                }
+
+                anchorPane.setOnMouseClicked(
+                        click -> {
+                            try {
+                                Title.setText("Product");
+                                grid.getChildren().removeAll(grid.getChildren());
+
+                                FXMLLoader infxmlLoader = new FXMLLoader();
+                                infxmlLoader.setLocation(getClass().getResource("product-details(ahmad).fxml"));
+                                AnchorPane inanchorPane = infxmlLoader.load();
+
+                                grid.add(inanchorPane, 1, 1); //(child,column,row)
+                                //set grid width
+                                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                                //set grid height
+                                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                                GridPane.setMargin(inanchorPane, new Insets(10, 5, 10, 70));
+                            }
+                            catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                );
+
+                grid.add(anchorPane, column++, row); //(child,column,row)
+                //set grid width
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(10, 5, 10,5));
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+
     public void switchToFavorites(ActionEvent event) throws IOException {
         Title.setText("My Favorites");
         int column = 0;
@@ -101,6 +173,35 @@ public class HomePageController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("Tile.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
+
+                anchorPane.setOnMouseClicked(
+                        click -> {
+                            try {
+                                Title.setText("Product");
+                                grid.getChildren().removeAll(grid.getChildren());
+
+                                FXMLLoader infxmlLoader = new FXMLLoader();
+                                infxmlLoader.setLocation(getClass().getResource("product-details(ahmad).fxml"));
+                                AnchorPane inanchorPane = infxmlLoader.load();
+
+                                grid.add(inanchorPane, 1, 1); //(child,column,row)
+                                //set grid width
+                                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                                //set grid height
+                                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                                GridPane.setMargin(inanchorPane, new Insets(10, 5, 10, 70));
+                            }
+                            catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                );
 
                 TilesController tilesController = fxmlLoader.getController();
                 tilesController.setData(tiles.get(i));
@@ -153,6 +254,34 @@ public class HomePageController implements Initializable {
                 row++;
             }
 
+            anchorPane.setOnMouseClicked(
+                    click -> {
+                        try {
+                            Title.setText("Product");
+                            grid.getChildren().removeAll(grid.getChildren());
+
+                            FXMLLoader infxmlLoader = new FXMLLoader();
+                            infxmlLoader.setLocation(getClass().getResource("product-details(ahmad).fxml"));
+                            AnchorPane inanchorPane = infxmlLoader.load();
+
+                            grid.add(inanchorPane, 1, 1); //(child,column,row)
+                            //set grid width
+                            grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                            grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                            grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                            //set grid height
+                            grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                            grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                            grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                            GridPane.setMargin(inanchorPane, new Insets(10, 5, 10, 70));
+                        }
+                        catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+            );
 
             grid.add(anchorPane, column++, row); //(child,column,row)
             //set grid width
