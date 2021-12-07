@@ -48,7 +48,7 @@ public class TilesController {
     }
 
     public void switchToHomePage(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("product_details.fxml"));
+        root = FXMLLoader.load(getClass().getResource("product-details(ahmad).fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
