@@ -40,7 +40,7 @@
                   <VBox prefHeight="43.0" prefWidth="300.0" />
                   <Button fx:id="recomendationsButton" mnemonicParsing="false" prefHeight="48.0" prefWidth="330.0" styleClass="homePage_options" text="Recomendations" />
                   <Button fx:id="favoritesButton" mnemonicParsing="false" onAction="#switchToFavorites" prefHeight="48.0" prefWidth="330.0" styleClass="homePage_options" text="My Favorites" />
-                  <Button fx:id="letSeeButton" mnemonicParsing="false" prefHeight="48.0" prefWidth="330.0" styleClass="homePage_options" text="Lets See" />
+                  <Button fx:id="letSeeButton" mnemonicParsing="false" onAction="#switchToProfile" prefHeight="48.0" prefWidth="330.0" styleClass="homePage_options" text="My Profile" />
                </children>
                <BorderPane.margin>
                   <Insets bottom="5.0" top="17.0" />
@@ -52,7 +52,7 @@
                <children>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Your Recommendations">
+                        <Label fx:id="Title" prefHeight="26.0" prefWidth="270.0" text="Your Recommendations">
                            <font>
                               <Font name="Microsoft JhengHei Bold" size="18.0" />
                            </font>
@@ -60,7 +60,6 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <HBox prefHeight="100.0" prefWidth="415.0" />
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
@@ -76,6 +75,9 @@
                                 </items>
                               </MenuButton>
                            </children>
+                           <HBox.margin>
+                              <Insets left="450.0" />
+                           </HBox.margin>
                         </HBox>
                      </children>
                   </HBox>

@@ -41,12 +41,22 @@
 
 .input_field_label{
 -fx-text-fill: #929293;
+-fx-font-family: "Microsoft YaHei";
+-fx-font-weight: bold;
 }
 
 .input_field_textbox{
 -fx-background-color: transparent;
 -fx-border-color: #dfdfdf;
 -fx-border-width: 0 0 1.4 0;
+-fx-font-family: "Microsoft YaHei";
+}
+
+.profile_Title{
+-fx-text-fill: #929293;
+-fx-font-family: "Microsoft YaHei";
+-fx-font-weight: bold;
+-fx-font-size: 17;
 }
 
 .menu-item .label {
