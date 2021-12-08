@@ -1,6 +1,8 @@
 module com.example.tecno {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
+    requires org.jetbrains.annotations;
 
 
     opens com.example.tecno to javafx.fxml;

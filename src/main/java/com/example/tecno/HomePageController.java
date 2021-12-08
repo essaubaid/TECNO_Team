@@ -16,6 +16,7 @@ import model.ProductTileView;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -41,11 +42,13 @@ public class HomePageController implements Initializable {
     private Button letSeeButton;
 
     private List<ProductTileView> tiles = new ArrayList<>();
-
+Connection conn=HelloApplication.conn;
 
     private List getData(){
         List<ProductTileView> tiles = new ArrayList<>();
         ProductTileView tile = new ProductTileView();
+
+
 
         for(int a = 0; a < 6; a++){
             tile.setProductName("Google Pixel 2 XL");

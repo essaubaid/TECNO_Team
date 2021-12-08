@@ -44,6 +44,7 @@ public class TilesController {
         sellerName.setText(tile.getSellerName());
         productPrice.setText("Rs "+tile.getPrice());
         Image image = new Image(getClass().getResourceAsStream(tile.getImgURL()));
+
         this.image.setImage(image);
     }
 

@@ -16,6 +16,10 @@ import model.ProductTileView;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -40,29 +44,40 @@ public class AdminPageController implements Initializable {
     @FXML
     private Button letSeeButton;
 
+    private Connection conn = HelloApplication.conn;
     private List<ProductTileView> tiles = new ArrayList<>();
+    private int count =0;
 
-
-    private List getData(){
+    private List getData() throws SQLException {
         List<ProductTileView> tiles = new ArrayList<>();
-        ProductTileView tile = new ProductTileView();
 
-        for(int a = 0; a < 6; a++){
-            tile.setProductName("Google Pixel 2 XL");
+        String query = "select * from product_listing;"; // query to check if id exists
+
+        PreparedStatement st = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_SENSITIVE,
+                ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+                ResultSet rs = st.executeQuery();
+
+
+        while(rs.next()){
+            ProductTileView tile = new ProductTileView();
+            tile.setProductName(rs.getString(1) + " " + rs.getString(2)  );
             tile.setSellerName("by Pawan Kumar");
             tile.setPrice(90000);
-            tile.setImgURL("/img/google_pixel_2_XL.jpg");
-//            tile.setImg(new Image(getClass().getResourceAsStream("/img/google_pixel_2_XL.jpg")));
-            tiles.add(tile);
-            tile = new ProductTileView();
 
-            tile.setProductName("Yeezys");
+            tile.setImgURL(rs.getString(3));
+
+//            tile.setImg(new Image(getClass().getResourceAsStream("/img/google_pixel_2_XL.jpg")));
+
+            tiles.add(tile);
+
+            count++;
+           /* tile.setProductName("Yeezys");
             tile.setSellerName("by Pawan Kumar");
             tile.setPrice(90000);
             tile.setImgURL("/img/Adidas-Yeezy.png");
 
             tiles.add(tile);
-            tile = new ProductTileView();
+            tile = new ProductTileView();*/
         }
 
         return tiles;
@@ -302,11 +317,15 @@ public class AdminPageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tiles.addAll(getData());
+        try {
+            tiles.addAll(getData());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         int column = 0;
         int row = 1;
 
-        for(int i = 0; i < tiles.size(); i++){
+        for(int i = 0; i < count; i++){
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("Tile.fxml"));
@@ -368,5 +387,8 @@ public class AdminPageController implements Initializable {
             }
 
         }
+    }
+
+    private class connection {
     }
 }
