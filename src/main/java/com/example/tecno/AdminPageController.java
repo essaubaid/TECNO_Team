@@ -47,7 +47,7 @@ public class AdminPageController implements Initializable {
     @FXML
     private Button letSeeButton;
 
-    private Connection conn = HelloApplication.conn;
+    public Connection conn = HelloApplication.conn;
     private List<ProductTileView> tiles = new ArrayList<>();
     private int count =0;
     public adminClass admin;
@@ -64,11 +64,11 @@ public class AdminPageController implements Initializable {
 
         while(rs.next()){
             ProductTileView tile = new ProductTileView();
-            tile.setProductName(rs.getString(1) + " " + rs.getString(2)  );
-            tile.setSellerName("by Pawan Kumar");
-            tile.setPrice(90000);
+            tile.setProductName(rs.getString(2) + " " + rs.getString(3)  );
 
-            tile.setImgURL(rs.getString(3));
+            tile.setProductID(rs.getInt(1));
+
+            tile.setImgURL(rs.getString(4));
 
 //            tile.setImg(new Image(getClass().getResourceAsStream("/img/google_pixel_2_XL.jpg")));
 
@@ -196,6 +196,7 @@ public class AdminPageController implements Initializable {
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 TilesController tilesController = fxmlLoader.getController();
+
                 tilesController.setData(tiles.get(i));
 
                 if(column==3){
@@ -203,6 +204,7 @@ public class AdminPageController implements Initializable {
                     row++;
                 }
 
+                int finalI = i;
                 anchorPane.setOnMouseClicked(
                         click -> {
                             try {
@@ -212,6 +214,25 @@ public class AdminPageController implements Initializable {
                                 FXMLLoader infxmlLoader = new FXMLLoader();
                                 infxmlLoader.setLocation(getClass().getResource("product-details(ahmad).fxml"));
                                 AnchorPane inanchorPane = infxmlLoader.load();
+                                String query = "select * from (select @input_int:=? p) parm , techno.view_product_detail s;"; // query to check if id exists
+                                tiles.get(finalI);
+                                PreparedStatement st = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_SENSITIVE,
+                                        ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+                                st.setInt(1,tiles.get(finalI).getProductID());
+                                ResultSet rs = st.executeQuery();
+
+                                productDetails product = new productDetails();
+
+                                String query2 = "select * from (select @input_int:=? p) parm , techno.view_seller_detail s;"; // query to check if id exists
+                                System.out.println(rs.getInt(2));
+                                PreparedStatement stat = conn.prepareStatement(query2,ResultSet.TYPE_SCROLL_SENSITIVE,
+                                        ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+                                stat.setInt(1,rs.getInt(2));
+                                ResultSet rst = stat.executeQuery();
+                                product.setSellerDetails(rst);
+                                product.setData(rs);
+                                ProductPageController productPageController = infxmlLoader.getController();
+                                productPageController.setData(product);
 
                                 grid.add(inanchorPane, 1, 1); //(child,column,row)
                                 //set grid width
@@ -227,6 +248,8 @@ public class AdminPageController implements Initializable {
                                 GridPane.setMargin(inanchorPane, new Insets(10, 5, 10, 70));
                             }
                             catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (SQLException e) {
                                 e.printStackTrace();
                             }
                         }
@@ -269,12 +292,14 @@ public class AdminPageController implements Initializable {
                 anchorPane.setOnMouseClicked(
                         click -> {
                             try {
+
                                 Title.setText("Product");
                                 grid.getChildren().removeAll(grid.getChildren());
 
                                 FXMLLoader infxmlLoader = new FXMLLoader();
                                 infxmlLoader.setLocation(getClass().getResource("product-details(ahmad).fxml"));
                                 AnchorPane inanchorPane = infxmlLoader.load();
+
 
                                 grid.add(inanchorPane, 1, 1); //(child,column,row)
                                 //set grid width
@@ -290,6 +315,8 @@ public class AdminPageController implements Initializable {
                                 GridPane.setMargin(inanchorPane, new Insets(10, 5, 10, 70));
                             }
                             catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (SQLException e) {
                                 e.printStackTrace();
                             }
                         }
@@ -368,6 +395,7 @@ public class AdminPageController implements Initializable {
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 TilesController tilesController = fxmlLoader.getController();
+
                 tilesController.setData(tiles.get(i));
 
                 if(column==3){
@@ -375,25 +403,37 @@ public class AdminPageController implements Initializable {
                     row++;
                 }
 
+                int finalI = i;
+                int finalI1 = i;
                 anchorPane.setOnMouseClicked(
                         click -> {
                             try {
+
                                 Title.setText("Product");
                                 grid.getChildren().removeAll(grid.getChildren());
 
                                 FXMLLoader infxmlLoader = new FXMLLoader();
                                 infxmlLoader.setLocation(getClass().getResource("product-details(ahmad).fxml"));
                                 AnchorPane inanchorPane = infxmlLoader.load();
-
-                                String query = "select prod_name, Ram, image_directory from techno.product" +
-                                        " where prod_id=7;"; // query to check if id exists
-
+                                String query = "select * from (select @input_int:=? p) parm , techno.view_product_detail s;"; // query to check if id exists
+                                tiles.get(finalI);
                                 PreparedStatement st = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_SENSITIVE,
                                         ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+                                st.setInt(1,tiles.get(finalI).getProductID());
                                 ResultSet rs = st.executeQuery();
 
                                 productDetails product = new productDetails();
                                 product.setData(rs);
+
+                                String query2 = "select * from (select @input_int:=? p) parm , techno.view_seller_detail s;"; // query to check if id exists
+
+                                PreparedStatement stat = conn.prepareStatement(query2,ResultSet.TYPE_SCROLL_SENSITIVE,
+                                        ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+                                stat.setInt(1,rs.getInt(2));
+                                ResultSet rst = stat.executeQuery();
+                                System.out.println(stat);
+                                product.setSellerDetails(rst);
+
 
                                 ProductPageController productPageController = infxmlLoader.getController();
                                 productPageController.setData(product);

@@ -1,7 +1,7 @@
 package model;
 
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
+import org.jetbrains.annotations.NotNull;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +10,7 @@ public class productDetails {
 
     private String productName;
 
-    private double price;
+    private int price;
     private String storage;
     private String ram;
     private String warranty;
@@ -113,21 +113,40 @@ public class productDetails {
         this.img = img;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
-    public void setData(ResultSet rs) throws SQLException {
+    public void setSellerDetails(@NotNull ResultSet rs) throws SQLException {
         rs.next();
-        System.out.println(rs.getString(1));
-        this.sellerName = rs.getString(1);
-        this.productName = rs.getString(2);
-        this.setImgURL(rs.getString(3));
+        this.sellerName=rs.getString(2);
 
+        this.shopName= rs.getString(3);
+        this.shopNo=rs.getString(4);
+        this.phoneNo="0"+rs.getString(5);
+    }
+
+    public void setData(@NotNull ResultSet rs) throws SQLException {
+        rs.next();
+
+
+        this.productName = rs.getString(3)+" "+rs.getString(4);
+        Image image = new Image(getClass().getResourceAsStream(rs.getString(10)));
+        this.img=image;
+        this.price=rs.getInt(5);
+        this.storage=rs.getString(6);
+        this.ram=rs.getString(7);
+        this.description=rs.getString(9);
+        if(rs.getBoolean(8)){
+            this.warranty="1 Year";
+        }
+        else{
+            this.warranty="Not Available";
+        }
 
     }
 }

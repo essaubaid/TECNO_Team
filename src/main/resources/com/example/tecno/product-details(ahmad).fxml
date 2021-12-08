@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
@@ -17,11 +16,7 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fx:id="Image" fitHeight="150.0" fitWidth="200.0" layoutX="51.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../../Downloads/Pawanpic.png" />
-         </image>
-      </ImageView>
+      <ImageView fx:id="Image" fitHeight="150.0" fitWidth="200.0" layoutX="51.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
       <ScrollPane layoutX="300.0" layoutY="94.0" prefHeight="286.0" prefWidth="370.0" styleClass="transparent">
          <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="686.0" prefWidth="354.0" styleClass="white_page">
@@ -39,13 +34,13 @@
                      </font>
                   </Label>
                   <Label layoutX="14.0" layoutY="80.0" styleClass="input_field_label" text="Warranty" />
-                  <Label fx:id="sellerNameLabel" layoutX="91.0" layoutY="50.0" styleClass="input_field_value" text="(price)" />
-                  <Label layoutX="91.0" layoutY="80.0" styleClass="input_field_value" text="Warranty" />
-                  <Label layoutX="222.0" layoutY="51.0" styleClass="input_field_value" text="Storage" />
-                  <Label layoutX="222.0" layoutY="80.0" styleClass="input_field_value" text="RAM" />
+                  <Label fx:id="bestprice" layoutX="91.0" layoutY="50.0" styleClass="input_field_value" text="(price)" />
+                  <Label fx:id="productWarranty" layoutX="91.0" layoutY="80.0" styleClass="input_field_value" text="Warranty" />
+                  <Label fx:id="productStorage" layoutX="222.0" layoutY="51.0" styleClass="input_field_value" text="Storage" />
+                  <Label fx:id="productRam" layoutX="222.0" layoutY="80.0" styleClass="input_field_value" text="RAM" />
                   <Label layoutX="17.0" layoutY="137.0" styleClass="input_field_label" text="Description" />
                   <Line endX="132.33334350585938" endY="-7.62939453125E-6" layoutX="151.0" layoutY="121.0" startX="-113.00001525878906" startY="-7.62939453125E-6" stroke="#929293" />
-                  <Label id="input_field_value" alignment="TOP_LEFT" layoutX="17.0" layoutY="163.0" prefHeight="93.0" prefWidth="286.0" styleClass="input_field_value" text="description" />
+                  <Label id="input_field_value" fx:id="productDescription" alignment="TOP_LEFT" layoutX="17.0" layoutY="163.0" prefHeight="93.0" prefWidth="286.0" styleClass="input_field_value" text="description" />
                   <Label layoutX="14.0" layoutY="269.0" styleClass="input_field_label" text="Seller Details">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
@@ -55,10 +50,10 @@
                   <Label layoutX="17.0" layoutY="368.0" styleClass="input_field_label" text="Phone No." />
                   <Label layoutX="163.0" layoutY="337.0" styleClass="input_field_label" text="Shop Name" />
                   <Label layoutX="163.0" layoutY="368.0" styleClass="input_field_label" text="Shop No." />
-                  <Label layoutX="78.0" layoutY="337.0" styleClass="input_field_value" text="Label" />
-                  <Label layoutX="78.0" layoutY="368.0" styleClass="input_field_value" text="Label" />
-                  <Label layoutX="243.0" layoutY="337.0" styleClass="input_field_value" text="Label" />
-                  <Label layoutX="243.0" layoutY="368.0" styleClass="input_field_value" text="Label" />
+                  <Label fx:id="sellerNameLabel" layoutX="78.0" layoutY="337.0" styleClass="input_field_value" text="Label" />
+                  <Label fx:id="sellerPhone" layoutX="78.0" layoutY="368.0" styleClass="input_field_value" text="Label" />
+                  <Label fx:id="sellerShop" layoutX="243.0" layoutY="337.0" styleClass="input_field_value" text="Label" />
+                  <Label fx:id="sellerShopno" layoutX="243.0" layoutY="368.0" styleClass="input_field_value" text="Label" />
                   <Line endX="127.0" layoutX="169.0" layoutY="408.0" startX="-119.66665649414062" stroke="#929293" />
                   <Label layoutX="19.0" layoutY="425.0" styleClass="input_field_label" text="Other Shop Prices">
                      <font>
@@ -68,7 +63,7 @@
                   <Label layoutX="19.0" layoutY="452.0" prefHeight="121.0" prefWidth="299.0" styleClass="input_field_value" text="Label" />
                   <Line endX="143.0" layoutX="151.0" layoutY="585.0" startX="-100.0" stroke="#929293" />
                   <Label layoutX="19.0" layoutY="607.0" styleClass="input_field_label" text="Rating" />
-                  <TextField layoutX="67.0" layoutY="603.0" prefHeight="25.0" prefWidth="56.0" />
+                  <TextField fx:id="rating" layoutX="67.0" layoutY="603.0" prefHeight="25.0" prefWidth="56.0" />
                   <Label layoutX="150.0" layoutY="607.0" styleClass="input_field_value" text="( 0-10 )" />
                </children>
             </AnchorPane>

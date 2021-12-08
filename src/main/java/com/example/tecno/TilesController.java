@@ -30,6 +30,8 @@ public class TilesController {
     @FXML
     private Label sellerName;
 
+    private int productID;
+
     private ProductTileView tile;
 
 
@@ -38,14 +40,17 @@ public class TilesController {
     private Parent root;
 
     public void setData(ProductTileView tile) {
-        this.tile = tile;
 
+        this.tile = tile;
+        productID=tile.getProductID();
         productName.setText(tile.getProductName());
         sellerName.setText(tile.getSellerName());
         productPrice.setText("Rs "+tile.getPrice());
+
         Image image = new Image(getClass().getResourceAsStream(tile.getImgURL()));
 
         this.image.setImage(image);
+
     }
 
     public void switchToHomePage(MouseEvent event) throws IOException {
@@ -59,7 +64,7 @@ public class TilesController {
 
     public void setMenuData(ProductTileView tile) {
         this.tile = tile;
-
+        productID= tile.getProductID();
         productName.setText(tile.getProductName());
         sellerName.setText(tile.getSellerName());
         productPrice.setText("Rs "+tile.getPrice());

@@ -3,11 +3,18 @@ package model;
 import javafx.scene.image.Image;
 
 public class ProductTileView {
+    private int productID;
     private String productName;
     private String sellerName;
     private Image img;
     private String imgURL;
     private double price;
+
+    public int getProductID() {return productID;}
+
+    public void setProductID(int productID) {
+        this.productID = productID;
+    }
 
     public String getProductName() {
         return productName;
