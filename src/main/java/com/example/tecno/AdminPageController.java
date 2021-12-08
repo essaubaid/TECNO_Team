@@ -65,6 +65,7 @@ public class AdminPageController implements Initializable {
         while(rs.next()){
             ProductTileView tile = new ProductTileView();
             tile.setProductName(rs.getString(2) + " " + rs.getString(3)  );
+
             tile.setProductID(rs.getInt(1));
 
             tile.setImgURL(rs.getString(4));
@@ -207,7 +208,6 @@ public class AdminPageController implements Initializable {
                 anchorPane.setOnMouseClicked(
                         click -> {
                             try {
-
                                 Title.setText("Product");
                                 grid.getChildren().removeAll(grid.getChildren());
 
@@ -232,8 +232,6 @@ public class AdminPageController implements Initializable {
                                 ResultSet rst = stat.executeQuery();
                                 System.out.println(stat);
                                 product.setSellerDetails(rst);
-
-
                                 ProductPageController productPageController = infxmlLoader.getController();
                                 productPageController.setData(product);
 
