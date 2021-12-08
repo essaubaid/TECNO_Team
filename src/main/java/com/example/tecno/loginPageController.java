@@ -68,9 +68,9 @@ public class loginPageController {
 
         PreparedStatement st = conn.prepareStatement(query); //creating and preparing statements
 
-        st.setString(1, "Ahmad");
+        st.setString(1, "Essa");
         // Ye delete karna mat bholna
-        username = "Ahmad";
+        username = "Essa";
         st.setString(2, "1234");
         ResultSet rs = st.executeQuery();
 
@@ -81,7 +81,7 @@ public class loginPageController {
 
         switch (Return){
             case "admin":
-                query = "select * from customer where username = ?;";
+                query = "select * from administrator where username = ?;";
                 st = conn.prepareStatement(query);
                 st.setString(1, username);
 

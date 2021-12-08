@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
@@ -86,13 +87,20 @@ public class AdminPageController implements Initializable {
         return tiles;
     }
 
-    public void switchToProfile(ActionEvent event) throws IOException {
+    public void switchToProfile(ActionEvent event) throws IOException, SQLException {
         Title.setText("My Profile");
         grid.getChildren().removeAll(grid.getChildren());
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("view-profile.fxml"));
         AnchorPane anchorPane = fxmlLoader.load();
+        profileController profileController = fxmlLoader.getController();
+        adminClass test = getAdminData();
+
+
+        profileController.setData(getAdminData());
+
+
 
         grid.add(anchorPane, 1, 1); //(child,column,row)
         //set grid width
@@ -316,6 +324,31 @@ public class AdminPageController implements Initializable {
 
         }
 
+    }
+
+    public adminClass getAdminData() throws SQLException {
+        adminClass adminClass = new adminClass();
+
+        String query = "select * from (select @input_int:=? p) parm , techno.view_admin_profile_detail s;"; // query to check if id exists
+
+        PreparedStatement st = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_SENSITIVE,
+                ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+        st.setInt(1, this.admin.getAdmin_ID());
+        ResultSet rs = st.executeQuery();
+
+        while(rs.next()){
+            adminClass.setAdmin_ID(rs.getInt(2));
+            adminClass.setUsername(rs.getString(3));
+            adminClass.setEmail(rs.getString(4));
+            adminClass.setPassword(rs.getString(5));
+            adminClass.setFirst_name(rs.getString(6));
+            adminClass.setLast_name(rs.getString(7));
+            adminClass.setAddress(rs.getString(8));
+            adminClass.setPhone_no(rs.getString(9));
+            adminClass.setAdmin_icon_URL(rs.getString(10));
+        }
+
+        return adminClass;
     }
 
     @Override
