@@ -65,7 +65,6 @@ public class AdminPageController implements Initializable {
         while(rs.next()){
             ProductTileView tile = new ProductTileView();
             tile.setProductName(rs.getString(2) + " " + rs.getString(3)  );
-
             tile.setProductID(rs.getInt(1));
 
             tile.setImgURL(rs.getString(4));
@@ -208,6 +207,7 @@ public class AdminPageController implements Initializable {
                 anchorPane.setOnMouseClicked(
                         click -> {
                             try {
+
                                 Title.setText("Product");
                                 grid.getChildren().removeAll(grid.getChildren());
 
@@ -222,16 +222,18 @@ public class AdminPageController implements Initializable {
                                 ResultSet rs = st.executeQuery();
 
                                 productDetails product = new productDetails();
+                                product.setData(rs);
 
                                 String query2 = "select * from (select @input_int:=? p) parm , techno.view_seller_detail s;"; // query to check if id exists
 
                                 PreparedStatement stat = conn.prepareStatement(query2,ResultSet.TYPE_SCROLL_SENSITIVE,
                                         ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
-                                rs.next();
                                 stat.setInt(1,rs.getInt(2));
                                 ResultSet rst = stat.executeQuery();
+                                System.out.println(stat);
                                 product.setSellerDetails(rst);
-                                product.setData(rs);
+
+
                                 ProductPageController productPageController = infxmlLoader.getController();
                                 productPageController.setData(product);
 
