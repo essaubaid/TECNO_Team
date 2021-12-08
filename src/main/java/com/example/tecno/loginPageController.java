@@ -68,10 +68,10 @@ public class loginPageController {
 
         PreparedStatement st = conn.prepareStatement(query); //creating and preparing statements
 
-        st.setString(1, "Essa");
+        st.setString(1, username);
         // Ye delete karna mat bholna
         username = "Essa";
-        st.setString(2, "1234");
+        st.setString(2, password);
         ResultSet rs = st.executeQuery();
 
 

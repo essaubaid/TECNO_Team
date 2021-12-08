@@ -95,8 +95,8 @@ public class AdminPageController implements Initializable {
         fxmlLoader.setLocation(getClass().getResource("view-profile.fxml"));
         AnchorPane anchorPane = fxmlLoader.load();
         profileController profileController = fxmlLoader.getController();
-        adminClass test = getAdminData();
 
+        System.out.println(1111);
 
         profileController.setData(getAdminData());
 
@@ -224,9 +224,10 @@ public class AdminPageController implements Initializable {
                                 productDetails product = new productDetails();
 
                                 String query2 = "select * from (select @input_int:=? p) parm , techno.view_seller_detail s;"; // query to check if id exists
-                                System.out.println(rs.getInt(2));
+
                                 PreparedStatement stat = conn.prepareStatement(query2,ResultSet.TYPE_SCROLL_SENSITIVE,
                                         ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+                                rs.next();
                                 stat.setInt(1,rs.getInt(2));
                                 ResultSet rst = stat.executeQuery();
                                 product.setSellerDetails(rst);
@@ -316,8 +317,6 @@ public class AdminPageController implements Initializable {
                             }
                             catch (IOException e) {
                                 e.printStackTrace();
-                            } catch (SQLException e) {
-                                e.printStackTrace();
                             }
                         }
                 );
@@ -361,9 +360,11 @@ public class AdminPageController implements Initializable {
         PreparedStatement st = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_SENSITIVE,
                 ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
         st.setInt(1, this.admin.getAdmin_ID());
+        System.out.println(st);
         ResultSet rs = st.executeQuery();
 
         while(rs.next()){
+            System.out.println(rs.getInt(2));
             adminClass.setAdmin_ID(rs.getInt(2));
             adminClass.setUsername(rs.getString(3));
             adminClass.setEmail(rs.getString(4));
