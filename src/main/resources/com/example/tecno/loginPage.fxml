@@ -27,7 +27,7 @@
             <Font name="Microsoft Sans Serif" size="12.0" />
          </font>
       </TextField>
-      <Button fx:id="loginButton" layoutX="398.0" layoutY="265.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="26.0" prefWidth="150.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="LOGIN" textFill="WHITE">
+      <Button fx:id="loginButton" layoutX="398.0" layoutY="265.0" mnemonicParsing="false" onAction="#initiateLogin" prefHeight="26.0" prefWidth="150.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="LOGIN" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font></Button>

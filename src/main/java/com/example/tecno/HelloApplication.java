@@ -18,8 +18,8 @@ public class HelloApplication extends Application {
     public void start(@NotNull Stage stage) throws IOException, SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         conn=DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/techno","root","DB@@2021");
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminHomePage.fxml"));
+                "jdbc:mysql://localhost:3310/techno","root","1234");
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("loginPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("TECNO");
         stage.setScene(scene);
