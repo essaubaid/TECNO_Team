@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import model.ProductTileView;
+import model.customerClass;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,7 +43,9 @@ public class HomePageController implements Initializable {
     private Button letSeeButton;
 
     private List<ProductTileView> tiles = new ArrayList<>();
-Connection conn=HelloApplication.conn;
+    customerClass customer;
+
+    Connection conn=HelloApplication.conn;
 
     private List getData(){
         List<ProductTileView> tiles = new ArrayList<>();

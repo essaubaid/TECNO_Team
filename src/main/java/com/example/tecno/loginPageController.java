@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.ProductTileView;
+import model.customerClass;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -66,7 +67,9 @@ public class loginPageController {
 
         PreparedStatement st = conn.prepareStatement(query); //creating and preparing statements
 
-        st.setString(1, "essa");
+        st.setString(1, "Ahmad");
+        // Ye delete karna mat bholna
+        username = "Ahmad";
         st.setString(2, "1234");
         ResultSet rs = st.executeQuery();
 
@@ -80,7 +83,18 @@ public class loginPageController {
                 switchToAdminPage(event);
                 break;
             case "user":
-                switchToHomePage(event);
+                query = "select * from customer where username = ?;";
+                st = conn.prepareStatement(query);
+                st.setString(1, username);
+
+                rs = st.executeQuery();
+
+                customerClass customer = new customerClass();
+                customer.setData(rs);
+                System.out.println(customer.getUsername()+"1");
+
+                switchToHomePage(event, customer);
+
                 break;
             case "shopkeeper":
                 break;
@@ -89,15 +103,24 @@ public class loginPageController {
     }
 
     public void switchToSetShop(ActionEvent event) throws IOException {
+
+
         root = FXMLLoader.load(getClass().getResource("setUpShop.fxml"));
+
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
     }
-    public void switchToHomePage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+    public void switchToHomePage(ActionEvent event, customerClass customer) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
+        root = fxmlLoader.load();
+        HomePageController homePageController = fxmlLoader.getController();
+        System.out.println(customer.getUsername()+"2");
+        homePageController.customer = customer;
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
