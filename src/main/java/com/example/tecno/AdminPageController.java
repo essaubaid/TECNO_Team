@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import model.ProductTileView;
+import model.adminClass;
 import model.productDetails;
 
 import java.io.IOException;
@@ -48,6 +49,7 @@ public class AdminPageController implements Initializable {
     private Connection conn = HelloApplication.conn;
     private List<ProductTileView> tiles = new ArrayList<>();
     private int count =0;
+    public adminClass admin;
 
     private List getData() throws SQLException {
         List<ProductTileView> tiles = new ArrayList<>();

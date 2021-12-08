@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.ProductTileView;
+import model.adminClass;
 import model.customerClass;
 
 import java.io.IOException;
@@ -80,7 +81,17 @@ public class loginPageController {
 
         switch (Return){
             case "admin":
-                switchToAdminPage(event);
+                query = "select * from customer where username = ?;";
+                st = conn.prepareStatement(query);
+                st.setString(1, username);
+
+                rs = st.executeQuery();
+
+                adminClass admin = new adminClass();
+                admin.setData(rs);
+                System.out.println(admin.getUsername()+"1");
+
+                switchToAdminPage(event, admin);
                 break;
             case "user":
                 query = "select * from customer where username = ?;";
@@ -118,7 +129,6 @@ public class loginPageController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("HomePage.fxml"));
         root = fxmlLoader.load();
         HomePageController homePageController = fxmlLoader.getController();
-        System.out.println(customer.getUsername()+"2");
         homePageController.customer = customer;
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -127,8 +137,12 @@ public class loginPageController {
         stage.show();
 
     }
-    public void switchToAdminPage(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("adminHomePage.fxml"));
+    public void switchToAdminPage(ActionEvent event, adminClass admin) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("adminHomePage.fxml"));
+        root = fxmlLoader.load();
+        AdminPageController adminPageController = fxmlLoader.getController();
+        adminPageController.admin = admin;
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
