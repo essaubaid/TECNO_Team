@@ -1,6 +1,10 @@
 package model;
 
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class productDetails {
 
@@ -115,5 +119,15 @@ public class productDetails {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public void setData(ResultSet rs) throws SQLException {
+        rs.next();
+        System.out.println(rs.getString(1));
+        this.sellerName = rs.getString(1);
+        this.productName = rs.getString(2);
+        this.setImgURL(rs.getString(3));
+
+
     }
 }

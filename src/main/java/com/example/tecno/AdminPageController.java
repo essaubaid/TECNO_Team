@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import model.ProductTileView;
+import model.productDetails;
 
 import java.io.IOException;
 import java.net.URL;
@@ -349,6 +350,19 @@ public class AdminPageController implements Initializable {
                                 infxmlLoader.setLocation(getClass().getResource("product-details(ahmad).fxml"));
                                 AnchorPane inanchorPane = infxmlLoader.load();
 
+                                String query = "select prod_name, Ram, image_directory from techno.product" +
+                                        " where prod_id=7;"; // query to check if id exists
+
+                                PreparedStatement st = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_SENSITIVE,
+                                        ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+                                ResultSet rs = st.executeQuery();
+
+                                productDetails product = new productDetails();
+                                product.setData(rs);
+
+                                ProductPageController productPageController = infxmlLoader.getController();
+                                productPageController.setData(product);
+
                                 grid.add(inanchorPane, 1, 1); //(child,column,row)
                                 //set grid width
                                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
@@ -363,6 +377,8 @@ public class AdminPageController implements Initializable {
                                 GridPane.setMargin(inanchorPane, new Insets(10, 5, 10, 70));
                             }
                             catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (SQLException e) {
                                 e.printStackTrace();
                             }
                         }
