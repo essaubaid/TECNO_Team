@@ -5,6 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
@@ -12,6 +15,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 import model.ProductTileView;
 import model.adminClass;
 import model.customerClass;
@@ -47,11 +51,25 @@ public class HomePageController implements Initializable {
     @FXML
     private Button letSeeButton;
 
+    @FXML
+    private AnchorPane background;
+
     private List<ProductTileView> tiles = new ArrayList<>();
     customerClass customer;
     private int count = 0;
 
     Connection conn = HelloApplication.conn;
+
+    public void logOut(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loginPage.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
 
     private List getData() throws SQLException {
         List<ProductTileView> tiles = new ArrayList<>();

@@ -41,6 +41,7 @@
                   <Button fx:id="myListingsButton" mnemonicParsing="false" onAction="#initialized" prefHeight="48.0" prefWidth="330.0" styleClass="homePage_options" text="My Listings" />
                   <Button fx:id="addInventoryButton" mnemonicParsing="false" prefHeight="48.0" prefWidth="330.0" styleClass="homePage_options" text="Add Inventory" />
                   <Button fx:id="letSeeButton" mnemonicParsing="false" onAction="#switchToProfile" prefHeight="48.0" prefWidth="330.0" styleClass="homePage_options" text="My Profile" />
+                  <Button fx:id="letSeeButton1" mnemonicParsing="false" onAction="#logOut" prefHeight="48.0" prefWidth="330.0" styleClass="homePage_options" text="LogOut" />
                </children>
                <BorderPane.margin>
                   <Insets bottom="5.0" top="17.0" />

@@ -5,11 +5,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 import model.*;
 
 import java.io.IOException;
@@ -92,6 +96,17 @@ public class sellerHomePageController {
         grid.setMaxHeight(Region.USE_PREF_SIZE);
 
         GridPane.setMargin(anchorPane, new Insets(10, 5, 10, 70));
+    }
+
+    public void logOut(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loginPage.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
     }
 
     public sellerClass getSellerData() throws SQLException {
