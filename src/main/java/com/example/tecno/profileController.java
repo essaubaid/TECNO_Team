@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import model.ProductTileView;
 import model.adminClass;
+import model.customerClass;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,9 +45,25 @@ public class profileController {
     private TextField addressTextBox;
 
     private adminClass admin;
+    private int ID;
 
     public void setData(adminClass admin) {
-        this.admin = admin;
+        this.ID = admin.getAdmin_ID();
+
+        usernameTextBox.setText(admin.getUsername());
+        passwordTextBox.setText(admin.getPassword());
+        firstNameTextBox.setText(admin.getFirst_name());
+        lastNameTextBox.setText(admin.getLast_name());
+        emailTextBox.setText(admin.getEmail());
+        phoneTextBox.setText(admin.getPhone_no());
+        addressTextBox.setText(admin.getAddress());
+//        Image image = new Image(getClass().getResourceAsStream(tile.getImgURL()));
+//
+//        this.image.setImage(image);
+    }
+
+    public void setData(customerClass admin) {
+        this.ID = admin.getCust_ID();
 
         usernameTextBox.setText(admin.getUsername());
         passwordTextBox.setText(admin.getPassword());
@@ -75,7 +92,7 @@ public class profileController {
 
         PreparedStatement st = conn.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE,
                 ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
-        st.setInt(1, this.admin.getAdmin_ID());
+        st.setInt(1, this.ID);
         st.setString(2, usernameTextBox.getText());
         st.setString(3, emailTextBox.getText());
         st.setString(4, passwordTextBox.getText());

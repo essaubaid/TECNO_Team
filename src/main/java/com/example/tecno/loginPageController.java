@@ -70,7 +70,6 @@ public class loginPageController {
 
         st.setString(1, username);
         // Ye delete karna mat bholna
-        username = "Essa";
         st.setString(2, password);
         ResultSet rs = st.executeQuery();
 

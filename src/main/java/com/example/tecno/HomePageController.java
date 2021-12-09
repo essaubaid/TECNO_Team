@@ -13,11 +13,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import model.ProductTileView;
+import model.adminClass;
 import model.customerClass;
+import model.productDetails;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -44,43 +49,86 @@ public class HomePageController implements Initializable {
 
     private List<ProductTileView> tiles = new ArrayList<>();
     customerClass customer;
+    private int count = 0;
 
-    Connection conn=HelloApplication.conn;
+    Connection conn = HelloApplication.conn;
 
-    private List getData(){
+    private List getData() throws SQLException {
         List<ProductTileView> tiles = new ArrayList<>();
-        ProductTileView tile = new ProductTileView();
+
+        String query = "select * from product_listing;"; // query to check if id exists
+
+        PreparedStatement st = conn.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE,
+                ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+        ResultSet rs = st.executeQuery();
 
 
+        while (rs.next()) {
+            ProductTileView tile = new ProductTileView();
+            tile.setProductName(rs.getString(2) + " " + rs.getString(3));
 
-        for(int a = 0; a < 6; a++){
-            tile.setProductName("Google Pixel 2 XL");
-            tile.setSellerName("by Pawan Kumar");
-            tile.setPrice(90000);
-            tile.setImgURL("/img/google_pixel_2_XL.jpg");
+            tile.setProductID(rs.getInt(1));
+
+            tile.setImgURL(rs.getString(4));
+
 //            tile.setImg(new Image(getClass().getResourceAsStream("/img/google_pixel_2_XL.jpg")));
-            tiles.add(tile);
-            tile = new ProductTileView();
 
-            tile.setProductName("Yeezys");
+            tiles.add(tile);
+
+            count++;
+           /* tile.setProductName("Yeezys");
             tile.setSellerName("by Pawan Kumar");
             tile.setPrice(90000);
             tile.setImgURL("/img/Adidas-Yeezy.png");
 
             tiles.add(tile);
-            tile = new ProductTileView();
+            tile = new ProductTileView();*/
         }
 
         return tiles;
     }
 
-    public void switchToProfile(ActionEvent event) throws IOException {
+    public customerClass getCustomerData() throws SQLException {
+        customerClass adminClass = new customerClass();
+
+        String query = "select * from (select @input_int:=? p) parm , techno.view_customer_profile_detail s;"; // query to check if id exists
+
+        PreparedStatement st = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_SENSITIVE,
+                ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+        st.setInt(1, this.customer.getCust_ID());
+        System.out.println(st);
+        ResultSet rs = st.executeQuery();
+
+        while(rs.next()){
+            System.out.println(rs.getInt(2));
+            adminClass.setCust_ID(rs.getInt(2));
+            adminClass.setUsername(rs.getString(3));
+            adminClass.setEmail(rs.getString(4));
+            adminClass.setPassword(rs.getString(5));
+            adminClass.setFirst_name(rs.getString(6));
+            adminClass.setLast_name(rs.getString(7));
+            adminClass.setAddress(rs.getString(8));
+            adminClass.setPhone_no(rs.getString(9));
+            adminClass.setProfile_icon_URL(rs.getString(10));
+        }
+
+        return adminClass;
+    }
+
+    public void switchToProfile(ActionEvent event) throws IOException, SQLException {
         Title.setText("My Profile");
         grid.getChildren().removeAll(grid.getChildren());
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("view-profile.fxml"));
         AnchorPane anchorPane = fxmlLoader.load();
+        profileController profileController = fxmlLoader.getController();
+
+        System.out.println(1111);
+
+        profileController.setData(getCustomerData());
+
+
 
         grid.add(anchorPane, 1, 1); //(child,column,row)
         //set grid width
@@ -97,35 +145,65 @@ public class HomePageController implements Initializable {
     }
 
     public void switchToRecommendation(ActionEvent event) throws IOException {
-        Title.setText("My Recommendation");
         grid.getChildren().removeAll(grid.getChildren());
-
+        tiles.removeAll(tiles);
+        try {
+            tiles.addAll(getData());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         int column = 0;
         int row = 1;
 
-        for(int i = 0; i < tiles.size(); i++){
+        for (int i = 0; i < count; i++) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("Tile.fxml"));
                 AnchorPane anchorPane = fxmlLoader.load();
 
                 TilesController tilesController = fxmlLoader.getController();
+
                 tilesController.setData(tiles.get(i));
 
-                if(column==3){
-                    column=0;
+                if (column == 3) {
+                    column = 0;
                     row++;
                 }
 
+                int finalI = i;
+                int finalI1 = i;
                 anchorPane.setOnMouseClicked(
                         click -> {
                             try {
+
                                 Title.setText("Product");
                                 grid.getChildren().removeAll(grid.getChildren());
 
                                 FXMLLoader infxmlLoader = new FXMLLoader();
                                 infxmlLoader.setLocation(getClass().getResource("product-details(ahmad).fxml"));
                                 AnchorPane inanchorPane = infxmlLoader.load();
+                                String query = "select * from (select @input_int:=? p) parm , techno.view_product_detail s;"; // query to check if id exists
+                                tiles.get(finalI);
+                                PreparedStatement st = conn.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE,
+                                        ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+                                st.setInt(1, tiles.get(finalI).getProductID());
+                                ResultSet rs = st.executeQuery();
+
+                                productDetails product = new productDetails();
+                                product.setData(rs);
+
+                                String query2 = "select * from (select @input_int:=? p) parm , techno.view_seller_detail s;"; // query to check if id exists
+
+                                PreparedStatement stat = conn.prepareStatement(query2, ResultSet.TYPE_SCROLL_SENSITIVE,
+                                        ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+                                stat.setInt(1, rs.getInt(2));
+                                ResultSet rst = stat.executeQuery();
+                                System.out.println(stat);
+                                product.setSellerDetails(rst);
+
+
+                                ProductPageController productPageController = infxmlLoader.getController();
+                                productPageController.setData(product);
 
                                 grid.add(inanchorPane, 1, 1); //(child,column,row)
                                 //set grid width
@@ -139,8 +217,9 @@ public class HomePageController implements Initializable {
                                 grid.setMaxHeight(Region.USE_PREF_SIZE);
 
                                 GridPane.setMargin(inanchorPane, new Insets(10, 5, 10, 70));
-                            }
-                            catch (IOException e) {
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (SQLException e) {
                                 e.printStackTrace();
                             }
                         }
@@ -157,13 +236,11 @@ public class HomePageController implements Initializable {
                 grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
 
-                GridPane.setMargin(anchorPane, new Insets(10, 5, 10,5));
+                GridPane.setMargin(anchorPane, new Insets(10, 5, 10, 5));
 
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     }
 
@@ -174,7 +251,7 @@ public class HomePageController implements Initializable {
         int row = 1;
 
         grid.getChildren().removeAll(grid.getChildren());
-        for(int i = 0; i < tiles.size(); i++){
+        for (int i = 0; i < tiles.size(); i++) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("Tile.fxml"));
@@ -202,8 +279,7 @@ public class HomePageController implements Initializable {
                                 grid.setMaxHeight(Region.USE_PREF_SIZE);
 
                                 GridPane.setMargin(inanchorPane, new Insets(10, 5, 10, 70));
-                            }
-                            catch (IOException e) {
+                            } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         }
@@ -212,11 +288,11 @@ public class HomePageController implements Initializable {
                 TilesController tilesController = fxmlLoader.getController();
                 tilesController.setData(tiles.get(i));
 
-                if(column==3){
-                    column=0;
+                if (column == 3) {
+                    column = 0;
                     row++;
                 }
-                if(tiles.get(i).getProductName().equals("Yeezys")){
+                if (tiles.get(i).getProductName().equals("Yeezys")) {
                     grid.add(anchorPane, column++, row); //(child,column,row)
                     //set grid width
                     grid.setMinWidth(Region.USE_COMPUTED_SIZE);
@@ -231,8 +307,7 @@ public class HomePageController implements Initializable {
                     GridPane.setMargin(anchorPane, new Insets(10, 5, 10, 5));
                 }
 
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 
@@ -240,73 +315,104 @@ public class HomePageController implements Initializable {
 
     }
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        tiles.addAll(getData());
+        try {
+            tiles.addAll(getData());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         int column = 0;
         int row = 1;
 
-        for(int i = 0; i < tiles.size(); i++){
+        for (int i = 0; i < count; i++) {
             try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("Tile.fxml"));
-            AnchorPane anchorPane = fxmlLoader.load();
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("Tile.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
 
-            TilesController tilesController = fxmlLoader.getController();
-            tilesController.setData(tiles.get(i));
+                TilesController tilesController = fxmlLoader.getController();
 
-            if(column==3){
-                column=0;
-                row++;
-            }
+                tilesController.setData(tiles.get(i));
 
-            anchorPane.setOnMouseClicked(
-                    click -> {
-                        try {
-                            Title.setText("Product");
-                            grid.getChildren().removeAll(grid.getChildren());
+                if (column == 3) {
+                    column = 0;
+                    row++;
+                }
 
-                            FXMLLoader infxmlLoader = new FXMLLoader();
-                            infxmlLoader.setLocation(getClass().getResource("product-details(ahmad).fxml"));
-                            AnchorPane inanchorPane = infxmlLoader.load();
+                int finalI = i;
+                int finalI1 = i;
+                anchorPane.setOnMouseClicked(
+                        click -> {
+                            try {
 
-                            grid.add(inanchorPane, 1, 1); //(child,column,row)
-                            //set grid width
-                            grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-                            grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                            grid.setMaxWidth(Region.USE_PREF_SIZE);
+                                Title.setText("Product");
+                                grid.getChildren().removeAll(grid.getChildren());
 
-                            //set grid height
-                            grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-                            grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                            grid.setMaxHeight(Region.USE_PREF_SIZE);
+                                FXMLLoader infxmlLoader = new FXMLLoader();
+                                infxmlLoader.setLocation(getClass().getResource("product-details(ahmad).fxml"));
+                                AnchorPane inanchorPane = infxmlLoader.load();
+                                String query = "select * from (select @input_int:=? p) parm , techno.view_product_detail s;"; // query to check if id exists
+                                tiles.get(finalI);
+                                PreparedStatement st = conn.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE,
+                                        ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+                                st.setInt(1, tiles.get(finalI).getProductID());
+                                ResultSet rs = st.executeQuery();
 
-                            GridPane.setMargin(inanchorPane, new Insets(10, 5, 10, 70));
+                                productDetails product = new productDetails();
+                                product.setData(rs);
+
+                                String query2 = "select * from (select @input_int:=? p) parm , techno.view_seller_detail s;"; // query to check if id exists
+
+                                PreparedStatement stat = conn.prepareStatement(query2, ResultSet.TYPE_SCROLL_SENSITIVE,
+                                        ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+                                stat.setInt(1, rs.getInt(2));
+                                ResultSet rst = stat.executeQuery();
+                                System.out.println(stat);
+                                product.setSellerDetails(rst);
+
+
+                                ProductPageController productPageController = infxmlLoader.getController();
+                                productPageController.setData(product);
+
+                                grid.add(inanchorPane, 1, 1); //(child,column,row)
+                                //set grid width
+                                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                                //set grid height
+                                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                                GridPane.setMargin(inanchorPane, new Insets(10, 5, 10, 70));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            } catch (SQLException e) {
+                                e.printStackTrace();
+                            }
                         }
-                        catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-            );
+                );
 
-            grid.add(anchorPane, column++, row); //(child,column,row)
-            //set grid width
-            grid.setMinWidth(Region.USE_COMPUTED_SIZE);
-            grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-            grid.setMaxWidth(Region.USE_PREF_SIZE);
+                grid.add(anchorPane, column++, row); //(child,column,row)
+                //set grid width
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
 
-            //set grid height
-            grid.setMinHeight(Region.USE_COMPUTED_SIZE);
-            grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
-            grid.setMaxHeight(Region.USE_PREF_SIZE);
+                //set grid height
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
 
-            GridPane.setMargin(anchorPane, new Insets(10, 5, 10,5));
+                GridPane.setMargin(anchorPane, new Insets(10, 5, 10, 5));
 
-            }
-             catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
     }
 }
