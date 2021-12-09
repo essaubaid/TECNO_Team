@@ -16,7 +16,14 @@ import model.productDetails;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+
+import static com.example.tecno.HelloApplication.conn;
 
 public class ProductPageController implements Initializable {
 
@@ -54,6 +61,8 @@ public class ProductPageController implements Initializable {
     private Parent root;
 
     private productDetails productdetails;
+    private int customer_id;
+    private int product_id;
 
     public void setData(productDetails productdetails){
         this.productNameLabel.setText(productdetails.getProductName());
@@ -72,7 +81,21 @@ public class ProductPageController implements Initializable {
 
     }
 
+    public int getCustomer_id() {
+        return customer_id;
+    }
 
+    public void setCustomer_id(int customer_id) {
+        this.customer_id = customer_id;
+    }
+
+    public int getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(int product_id) {
+        this.product_id = product_id;
+    }
 
     public void switchToSignIN(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
@@ -120,6 +143,25 @@ public class ProductPageController implements Initializable {
         stage.setScene(scene);
         stage.show();
 
+    }
+
+    public void addToFavorites(ActionEvent event) throws SQLException {
+        System.out.println("This is running");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(customer_id+"Error");
+        System.out.println(product_id+"Error");
+
+        String query = "INSERT INTO Favorites (prod_id, cust_id, date_of_saved) " +
+                "VALUES (?, ?, ?);"; // query to check if id exists
+
+        PreparedStatement st = conn.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE,
+                ResultSet.CONCUR_UPDATABLE); //creating and preparing statements
+        st.setInt(1, product_id);
+        st.setInt(2, customer_id);
+        st.setString(3, dtf.format(now));
+
+        st.executeUpdate();
     }
 
     @Override
