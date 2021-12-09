@@ -135,9 +135,9 @@ public class productDetails {
 
 
         this.productName = rs.getString(3)+" "+rs.getString(4);
-//        System.out.println(rs.getString(10));
+        if(rs.getString(10)!=null){
         Image image = new Image(getClass().getResourceAsStream(rs.getString(10)));
-        this.img=image;
+        this.img=image;}
         this.price=rs.getInt(5);
         this.storage=rs.getString(6);
         this.ram=rs.getString(7);

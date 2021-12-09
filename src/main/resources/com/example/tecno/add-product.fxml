@@ -9,17 +9,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="676.0" style="-fx-background-color: white;" styleClass="shadow" stylesheets="@../../../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tecno.addproductController">
    <children>
       <AnchorPane layoutX="45.0" layoutY="128.0" prefHeight="254.0" prefWidth="293.0">
          <children>
-            <ImageView fitHeight="113.0" fitWidth="100.0" layoutX="99.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="productImg" fitHeight="113.0" fitWidth="100.0" layoutX="99.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../img/addImageIcon.png" />
                </image>
             </ImageView>
-            <Button alignment="CENTER" contentDisplay="TOP" layoutX="83.0" layoutY="195.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="131.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="ADD IMAGE" />
+            <Button fx:id="productImgAdd" alignment="CENTER" contentDisplay="TOP" layoutX="83.0" layoutY="195.0" mnemonicParsing="false" onAction="#setProductImg" prefHeight="33.0" prefWidth="131.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="ADD IMAGE" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="411.0" layoutY="79.0" prefHeight="370.0" prefWidth="242.0">
@@ -31,7 +32,7 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <ComboBox layoutY="31.0" opacity="0.6" prefWidth="150.0" promptText="Select company" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css" />
+                  <ComboBox fx:id="companyName" layoutY="31.0" opacity="0.6" prefWidth="150.0" promptText="Select company" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css" />
                </children>
             </AnchorPane>
             <AnchorPane layoutY="70.0" prefHeight="64.0" prefWidth="214.0">
@@ -41,7 +42,7 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <ComboBox layoutY="31.0" opacity="0.6" prefWidth="150.0" promptText="Select category" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css" />
+                  <ComboBox fx:id="categoryName" layoutY="31.0" opacity="0.6" prefWidth="150.0" promptText="Select category" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css" />
                </children>
             </AnchorPane>
             <AnchorPane layoutY="132.0" prefHeight="64.0" prefWidth="214.0">
@@ -51,7 +52,7 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField layoutY="23.0" promptText="Enter product name" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css" />
+                  <TextField fx:id="productName" layoutY="23.0" promptText="Enter product name" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css" />
                </children>
             </AnchorPane>
             <AnchorPane layoutX="1.0" layoutY="188.0" prefHeight="64.0" prefWidth="214.0">
@@ -61,23 +62,52 @@
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField layoutY="20.0" promptText="Enter description" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css" />
+                  <TextField fx:id="productDescription" layoutY="20.0" promptText="Enter description" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="1.0" layoutY="246.0" prefHeight="64.0" prefWidth="214.0">
+            <AnchorPane layoutX="-61.0" layoutY="246.0" prefHeight="64.0" prefWidth="304.0">
                <children>
-                  <Label layoutY="-6.0" styleClass="input_field_label" stylesheets="@../../../Style/styles.css" text="Specs">
+                  <Label layoutX="62.0" layoutY="1.0" styleClass="input_field_label" stylesheets="@../../../Style/styles.css" text="Ram">
                      <font>
                         <Font name="Arial" size="12.0" />
                      </font>
                   </Label>
-                  <TextField layoutY="15.0" promptText="Enter specifications" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css" />
+                  <TextField fx:id="productRam" layoutX="62.0" layoutY="19.0" prefHeight="26.0" prefWidth="77.0" promptText="Enter Ram" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css" />
+                  <TextField fx:id="productStorage" layoutX="166.0" layoutY="19.0" prefHeight="26.0" prefWidth="100.0" promptText="Enter Storage" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css" />
+                  <Label layoutX="166.0" layoutY="1.0" styleClass="input_field_label" stylesheets="@../../../Style/styles.css" text="Storage">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-            <Button layoutX="54.0" layoutY="304.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="ADD" />
+            <Button fx:id="productAdd" layoutX="54.0" layoutY="304.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="ADD" />
          </children>
       </AnchorPane>
       <Label layoutX="410.0" layoutY="62.0" styleClass="tile_Title" stylesheets="@../../../Style/styles.css" text="ADD PRODUCT" />
       <Line endX="-100.0" endY="343.0" layoutX="438.0" layoutY="58.0" startX="-100.0" />
+      <AnchorPane layoutX="186.0" layoutY="61.0" prefHeight="327.0" prefWidth="304.0" style="-fx-background-color: WHITE;" styleClass="shadow" stylesheets="@../../../Style/styles.css" visible="false">
+         <children>
+            <AnchorPane fx:id="successAdd" prefHeight="209.0" prefWidth="304.0" style="-fx-background-color: #0085EB;">
+               <children>
+                  <Label layoutX="105.0" layoutY="165.0" text="SUCCESS" textAlignment="CENTER" textFill="#f8f7f7">
+                     <font>
+                        <Font name="Arial" size="19.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="95.0" prefHeight="164.0" prefWidth="137.0" text="✔" textFill="#fcfcfc">
+                     <font>
+                        <Font size="120.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Text layoutX="37.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product has been added!!" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

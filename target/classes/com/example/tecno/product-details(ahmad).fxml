@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
@@ -17,7 +18,10 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView fx:id="Image" fitHeight="150.0" fitWidth="200.0" layoutX="51.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="Image" fitHeight="264.0" fitWidth="239.0" layoutX="28.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/no_img.jpg" />
+         </image></ImageView>
       <ScrollPane layoutX="300.0" layoutY="94.0" prefHeight="286.0" prefWidth="370.0" styleClass="transparent">
          <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="686.0" prefWidth="354.0" styleClass="white_page">

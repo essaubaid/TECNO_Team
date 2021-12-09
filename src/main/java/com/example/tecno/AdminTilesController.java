@@ -1,6 +1,5 @@
 package com.example.tecno;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -15,7 +14,7 @@ import model.ProductTileView;
 
 import java.io.IOException;
 
-public class TilesController {
+public class AdminTilesController {
 
 
     @FXML
@@ -50,7 +49,7 @@ public class TilesController {
     }
 
     public void switchToHomePage(MouseEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("product-details(ahmad).fxml"));
+        root = FXMLLoader.load(getClass().getResource("product-details(admin).fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
