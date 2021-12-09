@@ -56,7 +56,7 @@ public class AdminPageController implements Initializable {
     private List getData() throws SQLException {
         List<ProductTileView> tiles = new ArrayList<>();
 
-        String query = "select * from allproduct_listing;"; // query to check if id exists
+        String query = "select * from product_listing;"; // query to check if id exists
 
         PreparedStatement st = conn.prepareStatement(query,ResultSet.TYPE_SCROLL_SENSITIVE,
                 ResultSet.CONCUR_UPDATABLE); //creating and preparing statements

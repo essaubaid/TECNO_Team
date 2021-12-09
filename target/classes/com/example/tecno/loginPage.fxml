@@ -53,16 +53,6 @@
             <Font name="Microsoft JhengHei Bold" size="12.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="394.0" layoutY="360.0" prefHeight="18.0" prefWidth="155.0" text="Want to set up a shop" textFill="#8c8888">
-         <font>
-            <Font name="Microsoft JhengHei Bold" size="12.0" />
-         </font>
-      </Label>
-      <Button fx:id="setShopButton" alignment="CENTER" layoutX="394.0" layoutY="375.0" mnemonicParsing="false" onAction="#switchToSetShop" prefHeight="26.0" prefWidth="155.0" styleClass="transparent" stylesheets="@../../../Style/styles.css" text="SET UP SHOP">
-         <font>
-            <Font name="Microsoft YaHei Bold" size="12.0" />
-         </font>
-      </Button>
       <Button fx:id="SignupButton" alignment="CENTER" layoutX="394.0" layoutY="336.0" mnemonicParsing="false" onAction="#switchToSignUP" prefHeight="26.0" prefWidth="155.0" styleClass="transparent" stylesheets="@../../../Style/styles.css" text="SIGNUP">
          <font>
             <Font name="Microsoft YaHei Bold" size="12.0" />

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="676.0" stylesheets="@../../../Style/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.tecno.sellerProfileController">
+   <children>
+      <Line endX="-100.0" endY="219.0" layoutX="388.0" layoutY="190.0" startX="-100.0" startY="-121.0" stroke="#929293" />
+      <Button layoutX="78.0" layoutY="300.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="140.0" styleClass="blue_button" text="Update Image">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font></Button>
+      <Button layoutX="414.0" layoutY="377.0" mnemonicParsing="false" onAction="#update_adminProfile" prefHeight="25.0" prefWidth="119.0" styleClass="blue_button" text="Update">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="298.0" layoutY="63.0">
+         <children>
+            <ScrollPane prefHeight="292.0" prefWidth="352.0" styleClass="transparent">
+               <content>
+                  <AnchorPane prefHeight="258.0" prefWidth="332.0" styleClass="white_page">
+                     <children>
+                        <Label layoutX="1.0" layoutY="170.0" styleClass="input_field_label" text="Username ">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="usernameTextBox" layoutX="1.0" layoutY="190.0" promptText="type your username" styleClass="input_field_textbox" />
+                        <Label layoutX="168.0" layoutY="170.0" styleClass="input_field_label" text="Password">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="passwordTextBox" layoutX="168.0" layoutY="190.0" promptText="type your password" styleClass="input_field_textbox" />
+                        <Label layoutY="46.0" styleClass="input_field_label" text="Name">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="1.0" layoutY="103.0" styleClass="input_field_label" text="Email">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutY="225.0" styleClass="input_field_label" text="Phone Number">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="NameTextBox" layoutX="1.0" layoutY="69.0" promptText="type your first name" styleClass="input_field_textbox" />
+                        <TextField fx:id="emailTextBox" layoutX="1.0" layoutY="126.0" promptText="type your email" styleClass="input_field_textbox" />
+                        <TextField fx:id="phoneTextBox" layoutX="1.0" layoutY="250.0" promptText="type your phone number" styleClass="input_field_textbox" />
+                        <Label prefHeight="35.0" prefWidth="92.0" styleClass="tile_Title" text="PROFILE" textFill="#929293">
+                           <font>
+                              <Font name="Microsoft YaHei Bold" size="17.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="shopNameTextBox" layoutX="168.0" layoutY="69.0" promptText="type your last name" styleClass="input_field_textbox" />
+                        <Label layoutX="167.0" layoutY="45.0" styleClass="input_field_label" text="Shop Name">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutY="290.0" styleClass="input_field_label" text="Address">
+                           <font>
+                              <Font name="Arial" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="addressTextBox" layoutX="1.0" layoutY="315.0" prefHeight="27.0" prefWidth="330.0" promptText="type your address" styleClass="input_field_textbox" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+   </children>
+   <styleClass>
+      <String fx:value="tile" />
+      <String fx:value="white_page" />
+   </styleClass>
+</AnchorPane>

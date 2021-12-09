@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import model.ProductTileView;
 import model.adminClass;
 import model.customerClass;
+import model.sellerClass;
 
 import java.io.IOException;
 import java.sql.PreparedStatement;
@@ -107,16 +108,27 @@ public class loginPageController {
 
                 break;
             case "shopkeeper":
+                query = "select * from shopkeeper where username = ?;";
+                st = conn.prepareStatement(query);
+                st.setString(1, username);
+
+                rs = st.executeQuery();
+
+                sellerClass sellerClass = new sellerClass();
+                sellerClass.setData(rs);
+
+                switchToSellerHomePage(event, sellerClass);
                 break;
         }
 
     }
 
-    public void switchToSetShop(ActionEvent event) throws IOException {
-
-
-        root = FXMLLoader.load(getClass().getResource("setUpShop.fxml"));
-
+    public void switchToSellerHomePage(ActionEvent event, sellerClass seller) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("sellerHomePage.fxml"));
+        root = fxmlLoader.load();
+        sellerHomePageController sellerPageController = fxmlLoader.getController();
+        sellerPageController.seller = seller;
+        sellerPageController.initialized();
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
