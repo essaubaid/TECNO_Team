@@ -22,7 +22,7 @@
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="395.0" layoutY="98.0" prefHeight="26.0" prefWidth="186.0" promptText="enter a username" stylesheets="@../../../Style/styles.css">
+      <TextField fx:id="usernameTextBox" layoutX="395.0" layoutY="98.0" prefHeight="26.0" prefWidth="186.0" promptText="enter a username" stylesheets="@../../../Style/styles.css">
          <styleClass>
             <String fx:value="transparent" />
             <String fx:value="input_field_textbox" />
@@ -32,12 +32,12 @@
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="395.0" layoutY="140.0" prefHeight="23.0" prefWidth="186.0" promptText="enter a password" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css">
+      <TextField fx:id="passwordTextBox" layoutX="395.0" layoutY="140.0" prefHeight="23.0" prefWidth="186.0" promptText="enter a password" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css">
          <font>
             <Font name="Microsoft Sans Serif" size="12.0" />
          </font>
       </TextField>
-      <Button fx:id="setUpButton" layoutX="413.0" layoutY="335.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="SET UP" textFill="WHITE">
+      <Button fx:id="setUpButton" layoutX="413.0" layoutY="335.0" mnemonicParsing="false" onAction="#setUpNewShop" prefHeight="26.0" prefWidth="150.0" styleClass="blue_button" stylesheets="@../../../Style/styles.css" text="SET UP" textFill="WHITE">
          <font>
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font></Button>
@@ -46,7 +46,7 @@
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="395.0" layoutY="257.0" prefHeight="23.0" prefWidth="186.0" promptText="type your email" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css">
+      <TextField fx:id="emailTextBox" layoutX="395.0" layoutY="257.0" prefHeight="23.0" prefWidth="186.0" promptText="type your email" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css">
          <font>
             <Font name="Microsoft Sans Serif" size="12.0" />
          </font>
@@ -56,7 +56,7 @@
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="395.0" layoutY="298.0" prefHeight="23.0" prefWidth="186.0" promptText="type your phone number" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css">
+      <TextField fx:id="phoneTextBox" layoutX="395.0" layoutY="298.0" prefHeight="23.0" prefWidth="186.0" promptText="type your phone number" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css">
          <font>
             <Font name="Microsoft Sans Serif" size="12.0" />
          </font>
@@ -81,7 +81,7 @@
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="395.0" layoutY="179.0" prefHeight="23.0" prefWidth="186.0" promptText="enter you shop name" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css">
+      <TextField fx:id="shopNameTextBox" layoutX="395.0" layoutY="179.0" prefHeight="23.0" prefWidth="186.0" promptText="enter you shop name" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css">
          <font>
             <Font name="Microsoft Sans Serif" size="12.0" />
          </font>
@@ -91,7 +91,7 @@
             <Font name="Microsoft YaHei Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="395.0" layoutY="218.0" prefHeight="23.0" prefWidth="186.0" promptText="enter you name" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css">
+      <TextField fx:id="NameTextBox" layoutX="395.0" layoutY="218.0" prefHeight="23.0" prefWidth="186.0" promptText="enter you name" styleClass="input_field_textbox" stylesheets="@../../../Style/styles.css">
          <font>
             <Font name="Microsoft Sans Serif" size="12.0" />
          </font>
